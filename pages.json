@@ -19,5 +19,9 @@
         "id": "oeuvre-du-club",
         "label": "Oeuvre du club",
         "type": "gallery"
+    },
+    {
+        "id": "outils-club",
+        "label": "Outils Club"
     }
 ]
