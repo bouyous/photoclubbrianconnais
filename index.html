@@ -75,9 +75,10 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
 .block-image.right { float: right; margin-left: 24px; margin-bottom: 0; width: 300px; height: 300px; object-fit: cover; }
 .block-image.top { width: 100%; margin-bottom: 20px; display: block; }
 .block-image.bottom { width: 100%; margin-top: 20px; display: block; }
-.block-image.small { width: 200px !important; height: 200px !important; }
-.block-image.medium { width: 300px !important; height: 300px !important; }
-.block-image.large { width: 400px !important; height: 400px !important; }
+.block-image.small { max-width: 200px; height: auto; }
+.block-image.medium { max-width: 300px; height: auto; }
+.block-image.large { max-width: 400px; height: auto; }
+.block-image.top, .block-image.bottom { max-width: 100% !important; width: 100% !important; height: auto !important; }
 
 .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
 .gallery-item { aspect-ratio: 1; border-radius: 8px; overflow: hidden; cursor: zoom-in; border: 2px solid transparent; transition: all .3s; position: relative; }
@@ -254,7 +255,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(-
 
 <div style="background:var(--gold);padding:16px 32px;">
   <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;">
-    <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">1992</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">Fondé en</span></div>
+    <div style="text-align:center;color:#111;"><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;display:block;margin-bottom:2px;">Fondé en</span><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">1992</span></div>
     <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">2×</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">par mois</span></div>
     <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">FFP</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">Affilié</span></div>
     <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">∞</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">Tous niveaux</span></div>
@@ -610,14 +611,7 @@ Nous mettons également un point d'honneur à favoriser un esprit d'échange et 
     
 </main>
 
-<div style="background:var(--accent);padding:50px 32px;text-align:center;">
-  <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#111;margin-bottom:10px;">Une question ? Contactez-nous !</h2>
-  <p style="color:rgba(17,16,16,.7);margin-bottom:24px;"> · Briancon, Hautes-Alpes</p>
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-    <a href="tel:+33611699734" style="display:inline-flex;align-items:center;gap:8px;background:#111;color:#f0ede8;padding:11px 22px;border-radius:5px;text-decoration:none;font-weight:600;font-size:.9rem;">📞 06 11 69 97 34</a>
-    <a href="mailto:contact@photoclub.fr" style="display:inline-flex;align-items:center;gap:8px;background:#111;color:#f0ede8;padding:11px 22px;border-radius:5px;text-decoration:none;font-weight:600;font-size:.9rem;">✉️ contact@photoclub.fr</a>
-  </div>
-</div>
+
 <footer class="footer">
     
     <div class="footer-logo">Photo Club Brianconnais</div>
@@ -786,7 +780,11 @@ function saveConfig() {
     saveConfigData({
         site_name: document.getElementById('cfg-site_name').value,
         tagline: document.getElementById('cfg-tagline').value,
-        footer_text: document.getElementById('cfg-footer_text').value,
+        footer_text: document.getElementById('cfg-footer_text').value,
+        contact_phone: document.getElementById('cfg-contact_phone')?.value || '',
+        secretary_email: document.getElementById('cfg-secretary_email')?.value || '',
+        google_verification: document.getElementById('cfg-google_verification')?.value || '',
+        bing_verification: document.getElementById('cfg-bing_verification')?.value || '',
         meeting: document.getElementById('cfg-meeting').value
     });
 }
