@@ -487,6 +487,88 @@ Jean-Luc animera ce cours et nous permettra de nous essayer concrètement à cet
             <p style="margin-top:12px;color:rgba(200,169,110,.5);font-size:.78rem;">Affilié à la Fédération Photographique de France · Fondé en 1992</p>
 </footer>
 
+<script>
+// Lightbox Gallery
+let currentImageIndex = 0;
+let galleryImages = [];
+
+galleryImages = ["images\/img_69ccb8f6cd896.jpg","images\/img_69ccb901e42bf.jpg","images\/img_69ccbc5d34f0c.jpg","images\/img_69ccc9f260e9e.jpg","images\/img_69cccab6ddf89.jpg","images\/img_69ccc0d38df55.jpg","images\/img_69ccbd36d3c58.jpg","images\/img_69ccbc70f11fa.jpg","images\/img_69ccbc683a72d.jpg","images\/img_69cccae4eb166.jpg","images\/img_69cccb0f97640.jpg","images\/img_69cccb2b61e28.jpg","images\/img_69cccb39442dc.jpg","images\/img_69cccb3e2365f.jpg","images\/img_69cccb4539d57.jpg","images\/img_69cccb4c7fd0b.jpg","images\/img_69cccb5633da3.jpg","images\/img_69cccb68c2ef5.jpg","images\/img_69cccb6e710e1.jpg","images\/img_69cccb731e1d0.jpg","images\/img_69cccba5ef436.jpg","images\/img_69cccba271855.jpg","images\/img_69cccb87364f8.jpg","images\/img_69cccb81c2fd8.jpg","images\/img_69cccb7d98bc8.jpg","images\/img_69cccb76817af.jpg","images\/img_69cccbb1b6575.jpg","images\/img_69cd499ab57af.jpg","images\/img_69cd538864850.jpg","images\/img_69cd7d741af45.jpg","images\/img_69ccb8e438610.jpg","images\/img_69cd584e82fb3.jpg"].map(p => window.location.origin + '/' + p);
+function toggleGalleryImage(path, el) {
+    const isInGallery = el.style.borderColor === 'var(--gold)' || el.style.borderColor === 'rgb(212, 175, 55)';
+    
+    if (isInGallery) {
+        removeFromGallery(path);
+    } else {
+        addToGallery(path);
+    }
+}
+
+function addToGallery(path) {
+    fetch('?page=galerie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=add_to_gallery&path=' + encodeURIComponent(path)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            location.reload();
+        }
+    });
+}
+
+function removeFromGallery(path) {
+    if (!confirm('Retirer cette image de la galerie ?')) return;
+    fetch('?page=galerie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=remove_from_gallery&path=' + encodeURIComponent(path)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            location.reload();
+        }
+    });
+}
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    const img = document.getElementById('lightbox-img');
+    img.src = galleryImages[currentImageIndex];
+    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function prevImage(e) {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+}
+
+function nextImage(e) {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+}
+
+document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevImage(e);
+    if (e.key === 'ArrowRight') nextImage(e);
+});
+
+</script>
+
 
 <script>
 let currentHeroImage = 'images/img_69ccb901e42bf.jpg';
@@ -1051,85 +1133,6 @@ document.querySelectorAll('.block-wrapper[draggable=true]').forEach(wrapper => {
 });
 
 renderBlocks();
-
-// Lightbox Gallery
-let currentImageIndex = 0;
-let galleryImages = [];
-
-galleryImages = ["images\/img_69ccb8f6cd896.jpg","images\/img_69ccb901e42bf.jpg","images\/img_69ccbc5d34f0c.jpg","images\/img_69ccc9f260e9e.jpg","images\/img_69cccab6ddf89.jpg","images\/img_69ccc0d38df55.jpg","images\/img_69ccbd36d3c58.jpg","images\/img_69ccbc70f11fa.jpg","images\/img_69ccbc683a72d.jpg","images\/img_69cccae4eb166.jpg","images\/img_69cccb0f97640.jpg","images\/img_69cccb2b61e28.jpg","images\/img_69cccb39442dc.jpg","images\/img_69cccb3e2365f.jpg","images\/img_69cccb4539d57.jpg","images\/img_69cccb4c7fd0b.jpg","images\/img_69cccb5633da3.jpg","images\/img_69cccb68c2ef5.jpg","images\/img_69cccb6e710e1.jpg","images\/img_69cccb731e1d0.jpg","images\/img_69cccba5ef436.jpg","images\/img_69cccba271855.jpg","images\/img_69cccb87364f8.jpg","images\/img_69cccb81c2fd8.jpg","images\/img_69cccb7d98bc8.jpg","images\/img_69cccb76817af.jpg","images\/img_69cccbb1b6575.jpg","images\/img_69cd499ab57af.jpg","images\/img_69cd538864850.jpg","images\/img_69cd7d741af45.jpg","images\/img_69ccb8e438610.jpg","images\/img_69cd584e82fb3.jpg"].map(p => window.location.origin + '/' + p);
-function toggleGalleryImage(path, el) {
-    const isInGallery = el.style.borderColor === 'var(--gold)' || el.style.borderColor === 'rgb(212, 175, 55)';
-    
-    if (isInGallery) {
-        removeFromGallery(path);
-    } else {
-        addToGallery(path);
-    }
-}
-
-function addToGallery(path) {
-    fetch('?page=galerie', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=add_to_gallery&path=' + encodeURIComponent(path)
-    })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) {
-            location.reload();
-        }
-    });
-}
-
-function removeFromGallery(path) {
-    if (!confirm('Retirer cette image de la galerie ?')) return;
-    fetch('?page=galerie', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=remove_from_gallery&path=' + encodeURIComponent(path)
-    })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) {
-            location.reload();
-        }
-    });
-}
-
-function openLightbox(index) {
-    currentImageIndex = index;
-    const img = document.getElementById('lightbox-img');
-    img.src = galleryImages[currentImageIndex];
-    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function prevImage(e) {
-    e.stopPropagation();
-    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-    document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
-    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
-}
-
-function nextImage(e) {
-    e.stopPropagation();
-    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-    document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
-    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
-}
-
-document.addEventListener('keydown', function(e) {
-    if (!document.getElementById('lightbox').classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') prevImage(e);
-    if (e.key === 'ArrowRight') nextImage(e);
-});
 
 // Image Resizer Tool
 let resizeOriginalWidth = 0;
