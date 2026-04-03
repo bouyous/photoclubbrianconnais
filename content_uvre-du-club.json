@@ -1,0 +1,28 @@
+{
+    "type": "normal",
+    "hero_title": "Explorez la <em>passion<\/em> de la photographie",
+    "hero_sub": "Rejoignez notre communaute de passionnes pour des ateliers, des expositions et des sorties photo dans les Hautes-Alpes.",
+    "hero_bg_color": "#111010",
+    "hero_text_color": "#f7f4f0",
+    "hero_image": "images\/img_69cd56a22683e.jpg",
+    "hero_image_opacity": "1",
+    "hero_image_x": "70",
+    "hero_image_y": "33",
+    "stats_bg_color": "#c8a96e",
+    "section_bg_color": "#f7f4f0",
+    "text_bg_color": "##000000",
+    "text_color": "#2a2825",
+    "activities_bg_color": "#111010",
+    "contact_bg_color": "#c8a96e",
+    "footer_bg_color": "#111010",
+    "style": {
+        "font": "DM Sans",
+        "accent": "#c8a96e"
+    },
+    "blocks": [
+        {
+            "content": "<p><br><\/p><br><img src=\"images\/img_69cd56dc7ac4a.jpg\" style=\"max-width: 100%; border-radius: 8px; margin: 12px 0px; display: block;\"><br><img src=\"images\/img_69cd56e71d824.jpg\" style=\"max-width: 100%; border-radius: 8px; margin: 12px 0px; display: block;\"><br><img src=\"images\/img_69cd56eca0183.jpg\" style=\"max-width: 100%; border-radius: 8px; margin: 12px 0px; display: block;\"><br><img src=\"images\/img_69cd584e82fb3.jpg\" style=\"max-width: 100%; border-radius: 8px; margin: 12px 0px; display: block;\">",
+            "bg": "rgb(255, 255, 255)"
+        }
+    ]
+}

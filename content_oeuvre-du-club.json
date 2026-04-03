@@ -1,0 +1,23 @@
+{
+    "type": "gallery",
+    "hero_title": "Oeuvre du Club",
+    "hero_sub": "Decouvrez les realisations de nos membres.",
+    "hero_bg_color": "#111010",
+    "hero_text_color": "#f7f4f0",
+    "hero_image": "images\/img_69cd6ac5d7c85.jpg",
+    "hero_image_opacity": "1",
+    "hero_image_x": "62",
+    "hero_image_y": "18",
+    "stats_bg_color": "#c8a96e",
+    "section_bg_color": "#1a1a1a",
+    "text_bg_color": "##000000",
+    "text_color": "#f7f4f0",
+    "activities_bg_color": "#111010",
+    "contact_bg_color": "#c8a96e",
+    "footer_bg_color": "#111010",
+    "style": {
+        "font": "DM Sans",
+        "accent": "#c8a96e"
+    },
+    "blocks": []
+}

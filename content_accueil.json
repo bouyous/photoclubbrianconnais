@@ -1,0 +1,32 @@
+{
+    "type": "normal",
+    "hero_title": "Explorez la <em>passion<\/em> de la photographie",
+    "hero_sub": "Rejoignez notre communaute de passionnes pour des ateliers, des expositions et des sorties photo dans les Hautes-Alpes.",
+    "hero_bg_color": "#111010",
+    "hero_text_color": "#f7f4f0",
+    "hero_image": "",
+    "hero_image_opacity": "0.28",
+    "hero_image_x": "50",
+    "hero_image_y": "50",
+    "stats_bg_color": "#c8a96e",
+    "section_bg_color": "#f7f4f0",
+    "text_bg_color": "##000000",
+    "text_color": "#2a2825",
+    "activities_bg_color": "#111010",
+    "contact_bg_color": "#c8a96e",
+    "footer_bg_color": "#111010",
+    "style": {
+        "font": "DM Sans",
+        "accent": "#c8a96e"
+    },
+    "blocks": [
+        {
+            "content": "<p>Notre club, le <strong>Photo Club Brianconnais<\/strong>, a vu le jour grace a la passion commune de ses membres pour la photographie. Situe a l'ancienne ecole primaire des Cros a Briancon.<\/p><br><img src=\"images\/img_69cd56c498d27.jpg\" style=\"max-width: 100%; border-radius: 8px; margin: 12px 0px; display: block;\">",
+            "bg": "rgb(255, 255, 255)"
+        },
+        {
+            "content": "<p>Notre mission est de rendre la photographie accessible a tous. Chaque membre peut evoluer a son rythme, sans pression ni competition.<\/p>",
+            "bg": "rgb(255, 255, 255)"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "type": "normal",
+    "hero_title": "Actualites &amp; Evénements",
+    "hero_sub": "Sorties photo, expositions et evenements a venir.",
+    "hero_bg_color": "#111010",
+    "hero_text_color": "#f7f4f0",
+    "hero_image": "images\/img_69cd547422474.jpg",
+    "hero_image_opacity": "1",
+    "hero_image_x": "48",
+    "hero_image_y": "86",
+    "stats_bg_color": "#c8a96e",
+    "section_bg_color": "#f7f4f0",
+    "text_bg_color": "##000000",
+    "text_color": "#2a2825",
+    "activities_bg_color": "#111010",
+    "contact_bg_color": "#c8a96e",
+    "footer_bg_color": "#111010",
+    "style": {
+        "font": "DM Sans",
+        "accent": "#c8a96e"
+    },
+    "blocks": [
+        {
+            "content": "<div class=\"uit_ct\" style=\"height: 420px; width: auto;\">\n\t\t<div class=\"tl\"><\/div>\n\t\t<div class=\"tr\"><\/div>\n\t\t<div class=\"br\"><\/div>\n\t\t<div class=\"bl\"><\/div>\n\t\t<div class=\"c\" style=\"overflow-y: hidden; height: calc(100% - 0px);\">\n\t\t\t<div class=\"uit_cttxt gt_backdrop_content\" placeholder=\"Entrez un texte ici\" data-editor_params=\"{&quot;enable_heading_insertion&quot;: true, &quot;enable_ai_tools&quot;: true}\" style=\"height: calc(100% - 0px);\"><h2>Prochaine réunion :&nbsp;le <strong>14 avril à 19h<\/strong><\/h2>\n<p>Lors de notre prochaine rencontre, nous mettrons l'accent sur une \ntechnique qui peut paraître complexe au premier abord, mais qui vous \npermettra de réaliser d'excellentes photos : la photographie à haute \nvitesse.<\/p>\n<p>Si ce terme vous est inconnu, sachez que cette technique est \nnotamment utilisée pour capturer des éclairs, des impacts de gouttes \nd'eau et bien d'autres phénomènes rapides. Nous espérons vous voir \nnombreux le 31 mars pour démystifier cette pratique encore trop peu \nconnue.<\/p>\n<p><b>Jean-Luc<\/b> animera ce cours et nous permettra de nous essayer \nconcrètement à cette technique.<\/p><p>&nbsp;En parallèle, nous invitons nos membres à\n travailler sur le sujet de la prochaine exposition : les forts qui \nentourent le Briançonnais.<img src=\"images\/img_69cd7d741af45.jpg\" style=\"max-width: 100%; border-radius: 8px; margin: 12px 0px; display: block;\"><br><\/p><\/div>\n\t\t<\/div>\n\t<\/div><br>",
+            "bg": "rgb(255, 255, 255)"
+        },
+        {
+            "content": "<div class=\"uit_ttl\"><div class=\"c\">\n\t\t\t<div class=\"uit_ttltxt gt_backdrop_title\" placeholder=\"Entrez un titre ici\" data-editor_params=\"{&quot;disable_image_insertion&quot;: true, &quot;disable_video_insertion&quot;: true, &quot;disable_list_insertion&quot;: true, &quot;disable_table_insertion&quot;: true, &quot;enable_ai_tools&quot;: true}\"><h2><b>Soutien au spectacle de l'association Nouvel Envol 05<\/b><\/h2><\/div>\n\t\t<\/div>\n\t<\/div>\n\t<div class=\"uit_ct\" style=\"height: 378px; width: auto;\">\n\t\t<div class=\"tl\"><\/div>\n\t\t<div class=\"tr\"><\/div>\n\t\t<div class=\"br\"><\/div>\n\t\t<div class=\"bl\"><\/div>\n\t\t<div class=\"c\" style=\"overflow-y: hidden; height: calc(100% - 0px);\">\n\t\t\t<div class=\"uit_cttxt gt_backdrop_content\" placeholder=\"Entrez un texte ici\" data-editor_params=\"{&quot;enable_heading_insertion&quot;: true, &quot;enable_ai_tools&quot;: true}\" style=\"height: calc(100% - 0px);\"><p>Nous sommes fiers de soutenir l'association Nouvel Envol pour leur spectacle exceptionnel mettant en scène <strong>50 personnes en situation de handicap<\/strong>. C'est un événement humain et artistique unique que nous vous invitons à partager avec nous.<\/p>\n<p>Deux représentations sont programmées pour vous permettre de découvrir leur talent : la première se tiendra le <strong>21 mai à 18h30 à la salle Le Tempo de Gap<\/strong>, et la seconde aura lieu le <strong>28 mai à 18h30 au Théâtre de Briançon<\/strong>. Veuillez noter que l'entrée est payante.<\/p>\n<p>À cette occasion, les membres du Photo Club Briançonnais réaliseront un<strong> reportage complet <\/strong>en\n salle et dans les coulisses afin d'immortaliser chaque instant de ce \nmoment fort et d'offrir aux participants des souvenirs inoubliables.<\/p><p><img src=\"images\/img_69cd7adb465a3.jpg\" style=\"max-width: 100%; border-radius: 8px; margin: 12px 0px; display: block;\"><br><br><\/p><\/div>\n\t\t<\/div>\n\t<\/div><br><br>",
+            "bg": "rgb(255, 255, 255)"
+        }
+    ]
+}

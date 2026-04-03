@@ -1,0 +1,23 @@
+[
+    {
+        "id": "accueil",
+        "label": "Accueil"
+    },
+    {
+        "id": "actualites",
+        "label": "Actualites"
+    },
+    {
+        "id": "le-club",
+        "label": "Le Club"
+    },
+    {
+        "id": "contact",
+        "label": "Contact"
+    },
+    {
+        "id": "oeuvre-du-club",
+        "label": "Oeuvre du club",
+        "type": "gallery"
+    }
+]
