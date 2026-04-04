@@ -1,1382 +1,1311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<!-- Meta verification (remplissez les valeurs dans l'editeur) -->
+<meta name="google-site-verification" content="">
+<meta name="msvalidate.01" content="">
+<meta name="yandex-verification" content="">
+<meta name="facebook-domain-verification" content="">
+<meta name="p:domain_verify" content="">
+<title>Photo Club Brianconnais</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #c8a96e; --gold-dark: #a8893e;
+  --dark: #111010; --dark-light: #1a1a18; --dark-lighter: #252520;
+  --text: #f0ede8; --text-dim: #888;
+  --bg: #f7f4f0; --accent: #c8a96e;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--text); line-height: 1.7; }
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<!-- Meta verification (remplissez les valeurs dans l'editeur) -->
-<meta name="google-site-verification" content="">
-<meta name="msvalidate.01" content="">
-<meta name="yandex-verification" content="">
-<meta name="facebook-domain-verification" content="">
-<meta name="p:domain_verify" content="">
-<title>Photo Club Brianconnais</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --gold: #c8a96e; --gold-dark: #a8893e;
-  --dark: #111010; --dark-light: #1a1a18; --dark-lighter: #252520;
-  --text: #f0ede8; --text-dim: #888;
-  --bg: #f7f4f0; --accent: #c8a96e;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--text); line-height: 1.7; }
-
-.header { background: var(--dark); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(200,169,110,.3); padding: 0 32px; height: 70px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
-.header-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 14px; text-decoration: none; }
-.header-logo small { display: block; font-size: .65rem; color: var(--gold); letter-spacing: 2.5px; text-transform: uppercase; font-family: 'DM Sans', sans-serif; font-weight: 500; }
-.nav-menu { display: flex; gap: 2px; list-style: none; }
-.nav-menu a { color: rgba(240,237,232,.7); text-decoration: none; padding: 8px 16px; border-radius: 5px; font-weight: 500; font-size: .875rem; transition: all .2s; }
-.nav-menu a:hover, .nav-menu a.active { color: var(--gold); background: rgba(200,169,110,.12); }
-
-.hero-preview { position: relative; min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; border-radius: 12px; margin-bottom: 20px; overflow: hidden; border: 2px solid rgba(212, 175, 55, 0.3); }
-.hero-preview::before { content: ''; position: absolute; inset: 0; pointer-events: none; }
-.hero-preview h1 { font-family: 'Cinzel', serif; font-size: 24px; color: var(--gold); margin-bottom: 8px; }
-.hero-preview p { font-size: 14px; color: var(--text); max-width: 400px; }
-.hero-preview .preview-label { position: absolute; top: 8px; left: 8px; background: var(--gold); color: #000; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-
-.hero { position: relative; min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 24px 80px; }
+.header { background: var(--dark); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(200,169,110,.3); padding: 0 32px; height: 70px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
+.header-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text); display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.header-logo small { display: block; font-size: .65rem; color: var(--gold); letter-spacing: 2.5px; text-transform: uppercase; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+.nav-menu { display: flex; gap: 2px; list-style: none; }
+.nav-menu a { color: rgba(240,237,232,.7); text-decoration: none; padding: 8px 16px; border-radius: 5px; font-weight: 500; font-size: .875rem; transition: all .2s; }
+.nav-menu a:hover, .nav-menu a.active { color: var(--gold); background: rgba(200,169,110,.12); }
 
-.hero { background-image: url('images/img_69ccb901e42bf.jpg'); background-size: cover; background-position: center 0%; }
-.hero::before { content: ''; position: absolute; inset: 0; background: rgba(10,10,10,0.4); pointer-events: none; }
+.hero-preview { position: relative; min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; border-radius: 12px; margin-bottom: 20px; overflow: hidden; border: 2px solid rgba(212, 175, 55, 0.3); }
+.hero-preview::before { content: ''; position: absolute; inset: 0; pointer-events: none; }
+.hero-preview h1 { font-family: 'Cinzel', serif; font-size: 24px; color: var(--gold); margin-bottom: 8px; }
+.hero-preview p { font-size: 14px; color: var(--text); max-width: 400px; }
+.hero-preview .preview-label { position: absolute; top: 8px; left: 8px; background: var(--gold); color: #000; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
 
-.hero > * { position: relative; z-index: 1; }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem,5vw,4rem); font-weight: 700; color: var(--gold); margin-bottom: 16px; text-shadow: 0 0 40px rgba(200,169,110,.25); max-width: 800px; line-height: 1.15; }
-.hero p { font-size: 1.1rem; color: rgba(240,237,232,.75); max-width: 600px; margin-bottom: 24px; }
-.hero-info { display: inline-flex; align-items: center; gap: 10px; padding: 10px 24px; background: rgba(200,169,110,.1); border: 1px solid rgba(200,169,110,.3); border-radius: 100px; color: var(--gold); font-size: .88rem; }
-
-.content { max-width: 1100px; margin: 0 auto; padding: 60px 24px 100px; }
-
-.block-wrapper { position: relative; margin-bottom: 30px; cursor: grab; }
-.block-wrapper:active { cursor: grabbing; }
-.block-wrapper.dragging { opacity: 0.5; transform: scale(0.98); }
-.block-wrapper.drag-over { border: 2px dashed var(--gold); border-radius: 16px; }
-
-.block { background: var(--dark-light); border-radius: 14px; padding: 40px; border: 1px solid rgba(200,169,110,.12); transition: box-shadow .3s, transform .2s; }
-.block:hover { box-shadow: 0 6px 24px rgba(200,169,110,.12); transform: translateY(-2px); }
-.block h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid rgba(200,169,110,.3); }
-.block h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--gold); margin: 16px 0 8px; }
-.block p { color: rgba(240,237,232,.8); line-height: 1.85; font-size: 1rem; }
-.news-item { background: var(--dark-lighter); border-radius: 12px; padding: 28px; border-left: 3px solid var(--gold); }
-.news-item h3 { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 6px; }
-.news-item .date { color: var(--gold-dark); font-size: .82rem; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
-.news-item .block-image { display: block; width: 100%; max-width: 100%; height: auto; margin-bottom: 16px; border-radius: 8px; }
-
-.block-edit-bar { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s; z-index: 10; }
-.block-wrapper:hover .block-edit-bar { opacity: 1; }
-.block-icon-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid rgba(212, 175, 55, 0.3); background: rgba(0,0,0,0.8); color: var(--gold); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: all 0.2s; }
-.block-icon-btn:hover { background: var(--gold); color: #000; }
-.block-icon-btn.delete:hover { background: #FF5757; border-color: #FF5757; color: #fff; }
-.block-icon-btn.drag-handle { cursor: grab; }
-
-.block-image { border-radius: 12px; margin-bottom: 20px; transition: width 0.3s; }
-.block-image.left { float: left; margin-right: 24px; margin-bottom: 0; width: 300px; height: 300px; object-fit: cover; }
-.block-image.right { float: right; margin-left: 24px; margin-bottom: 0; width: 300px; height: 300px; object-fit: cover; }
-.block-image.top { width: 100%; margin-bottom: 20px; display: block; }
-.block-image.bottom { width: 100%; margin-top: 20px; display: block; }
-.block-image.small { max-width: 200px; height: auto; }
-.block-image.medium { max-width: 300px; height: auto; }
-.block-image.large { max-width: 400px; height: auto; }
-.block-image.top, .block-image.bottom { max-width: 100% !important; width: 100% !important; height: auto !important; }
-
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-.gallery-item { aspect-ratio: 1; border-radius: 8px; overflow: hidden; cursor: zoom-in; border: 2px solid transparent; transition: all .3s; position: relative; }
-.gallery-item:hover { border-color: var(--gold); transform: scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,.5); }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-
-.contact-form { max-width: 600px; margin: 0 auto; }
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
-.form-group input, .form-group textarea { width: 100%; padding: 14px 18px; background: var(--dark-lighter); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 10px; color: var(--text); font-size: 16px; font-family: inherit; }
-.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); }
-.form-group textarea { min-height: 150px; resize: vertical; }
-
-.btn { padding: 11px 26px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; font-size: .9rem; transition: all .2s; font-family: inherit; }
-.btn-gold { background: var(--gold); color: #111; }
-.btn-gold:hover { background: #d4b87a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,169,110,.35); }
-.btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
-.btn-outline:hover { background: rgba(200,169,110,.1); }
-.btn-sm { padding: 7px 14px; font-size: .82rem; }
-
-.ai-box { background: linear-gradient(135deg, var(--dark-light), var(--dark-lighter)); border: 2px solid var(--gold); border-radius: 20px; padding: 32px; margin: 40px 0; }
-.ai-box.green { border-color: #1EA97C; }
-.ai-box h3 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-.ai-box.green h3 { color: #1EA97C; }
-.ai-textarea { width: 100%; min-height: 100px; padding: 18px; background: var(--dark); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; color: var(--text); font-family: inherit; font-size: 16px; resize: vertical; }
-.ai-result { margin-top: 20px; padding: 20px; background: var(--dark); border-radius: 12px; border-left: 4px solid var(--gold); }
-.ai-loading { display: none; align-items: center; gap: 12px; margin-top: 16px; color: var(--gold); }
-.ai-loading.show { display: flex; }
-.spinner { width: 24px; height: 24px; border: 3px solid rgba(212, 175, 55, 0.2); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.editor-panel { position: fixed; top: 0; left: -450px; bottom: 0; width: 450px; background: var(--dark-light); border-right: 1px solid rgba(200,169,110,.2); overflow-y: auto; z-index: 1001; transition: left .3s ease; padding: 20px; }
-.editor-panel.active { left: 0; }
-.editor-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid rgba(200,169,110,.2); margin-bottom: 20px; }
-.editor-header h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; }
-.editor-close { background: none; border: none; color: var(--text); font-size: 28px; cursor: pointer; padding: 0; }
-.editor-section { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-.editor-section h3 { color: var(--gold); font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-.editor-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-.editor-tab { padding: 10px 14px; background: var(--dark); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 8px; color: var(--text); cursor: pointer; font-size: 12px; transition: all 0.3s; }
-.editor-tab.active, .editor-tab:hover { background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: var(--gold); }
-.editor-content { display: none; }
-.editor-content.active { display: block; }
-
-.block-list { margin-top: 16px; }
-.block-item { background: var(--dark); border-radius: 10px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(212, 175, 55, 0.1); }
-.block-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.block-item-type { color: var(--gold); font-size: 11px; text-transform: uppercase; }
-.block-item-actions { display: flex; gap: 6px; }
-.block-item-actions button { padding: 5px 10px; border-radius: 5px; border: none; cursor: pointer; font-size: 11px; }
-.edit-btn { background: rgba(212, 175, 55, 0.2); color: var(--gold); }
-.delete-btn { background: rgba(255, 87, 87, 0.2); color: #FF5757; }
-.move-btn { background: rgba(255, 255, 255, 0.1); color: var(--text); }
-.add-block-btn { padding: 12px; background: var(--dark); border: 1px dashed rgba(212, 175, 55, 0.3); border-radius: 8px; color: var(--gold); cursor: pointer; font-size: 13px; width: 100%; margin-top: 8px; }
-.add-block-btn:hover { background: rgba(212, 175, 55, 0.1); }
-
-.image-picker { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 12px; max-height: 400px; overflow-y: auto; padding: 6px; }
-.image-picker-item { aspect-ratio: 1; border-radius: 8px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; position: relative; }
-.image-picker-item:hover, .image-picker-item.selected { border-color: var(--gold); }
-.image-picker-item img { width: 100%; height: 100%; object-fit: cover; }
-.image-picker-item .img-name { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); color: var(--gold); font-size: 10px; padding: 4px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.image-picker-item.in-gallery { border-color: var(--gold) !important; }
-.image-picker-item.in-gallery .img-name { color: var(--gold); }
-
-.toggle-editor { position: fixed; top: 50%; left: 0; transform: translateY(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border: none; border-radius: 0 12px 12px 0; cursor: pointer; font-size: 24px; z-index: 999; display: flex; align-items: center; justify-content: center; }
-.toggle-editor:hover { left: 0 !important; }
-
-.login-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); display: flex; align-items: center; justify-content: center; z-index: 2000; }
-.login-box { background: var(--dark-light); padding: 48px; border-radius: 24px; width: 420px; max-width: 90%; text-align: center; border: 1px solid rgba(212, 175, 55, 0.2); }
-.login-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 8px; }
-.login-box p { color: var(--text-dim); margin-bottom: 28px; }
-.login-box input { width: 100%; padding: 16px; background: var(--dark); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 12px; color: var(--text); font-size: 18px; text-align: center; margin-bottom: 20px; }
-.login-box input:focus { outline: none; border-color: var(--gold); }
-
-.footer { background: var(--dark); border-top: 1px solid rgba(200,169,110,.2); padding: 40px 32px; text-align: center; }
-.footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 12px; letter-spacing: .5px; }
-.footer p { color: var(--text-dim); font-size: .85rem; margin-top: 4px; }
-
-.mobile-menu-btn { display: none; background: none; border: none; color: var(--gold); font-size: 28px; cursor: pointer; }
-@media (max-width: 768px) {
-    .mobile-menu-btn { display: block; }
-    .nav-menu { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--dark-light); flex-direction: column; padding: 16px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
-    .nav-menu.open { display: flex; }
-    .hero h1 { font-size: 32px; }
-    .block { padding: 24px; }
-    .editor-panel { width: 100%; left: -100%; }
-}
-.site-watermark { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 12px; color: var(--gold); opacity: 0.5; }
-
-/* Lightbox Gallery */
-.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; z-index: 3000; padding: 20px; }
-.lightbox.active { display: flex; }
-.lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; }
-.lightbox-content img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 8px; }
-.lightbox-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; }
-.lightbox-close:hover { color: var(--gold); }
-.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: #fff; font-size: 40px; cursor: pointer; padding: 10px 20px; border-radius: 8px; }
-.lightbox-nav:hover { background: var(--gold); color: #000; }
-.lightbox-nav.prev { left: -60px; }
-.lightbox-nav.next { right: -60px; }
-.lightbox-counter { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); color: #888; font-size: 14px; }
-
-/* Chat AI */
-.chat-container { background: var(--dark); border-radius: 16px; overflow: hidden; margin-bottom: 20px; }
-.chat-messages { max-height: 300px; overflow-y: auto; padding: 20px; }
-.chat-message { margin-bottom: 16px; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.6; }
-.chat-message.user { background: rgba(212, 175, 55, 0.2); margin-left: 40px; }
-.chat-message.ai { background: rgba(30, 169, 124, 0.2); margin-right: 40px; border-left: 3px solid #1EA97C; }
-.chat-input-area { display: flex; gap: 10px; padding: 16px; border-top: 1px solid rgba(212, 175, 55, 0.1); }
-.chat-input-area input { flex: 1; padding: 12px 16px; background: var(--dark-lighter); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 8px; color: var(--text); font-size: 14px; }
-.chat-input-area button { padding: 12px 20px; }
-
-.suggestion-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.suggestion-chip { padding: 8px 14px; background: var(--dark); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 20px; color: var(--gold); font-size: 12px; cursor: pointer; transition: all 0.2s; }
-.suggestion-chip:hover { background: rgba(212, 175, 55, 0.2); }
-
-/* Generated blocks preview */
-.generated-blocks-preview { background: var(--dark); border-radius: 12px; padding: 20px; margin-top: 20px; border: 2px dashed rgba(212, 175, 55, 0.3); }
-.generated-block-item { background: var(--dark-lighter); padding: 16px; border-radius: 10px; margin-bottom: 12px; border-left: 3px solid #1EA97C; }
-.generated-block-item h4 { color: var(--gold); margin-bottom: 8px; font-size: 14px; }
-.generated-block-item p { font-size: 13px; color: var(--text-dim); }
-</style>
-</head>
-<body>
+.hero { position: relative; min-height: 60vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 24px 80px; }
+.hero { background-image: url('images/img_69ccb901e42bf.jpg'); background-size: cover; background-position: center 0%; }
+.hero::before { content: ''; position: absolute; inset: 0; background: rgba(10,10,10,0.4); pointer-events: none; }
+.hero > * { position: relative; z-index: 1; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem,5vw,4rem); font-weight: 700; color: var(--gold); margin-bottom: 16px; text-shadow: 0 0 40px rgba(200,169,110,.25); max-width: 800px; line-height: 1.15; }
+.hero p { font-size: 1.1rem; color: rgba(240,237,232,.75); max-width: 600px; margin-bottom: 24px; }
+.hero-info { display: inline-flex; align-items: center; gap: 10px; padding: 10px 24px; background: rgba(200,169,110,.1); border: 1px solid rgba(200,169,110,.3); border-radius: 100px; color: var(--gold); font-size: .88rem; }
 
-
-<header class="header">
-    <a href="index.html" class="header-logo">
-        <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:34px;height:34px;flex-shrink:0;">
-          <circle cx="19" cy="19" r="18" stroke="#c8a96e" stroke-width="1.5"/>
-          <circle cx="19" cy="19" r="10" stroke="#c8a96e" stroke-width="1.5"/>
-          <line x1="19" y1="1" x2="19" y2="9" stroke="#c8a96e" stroke-width="1.5"/>
-          <line x1="19" y1="29" x2="19" y2="37" stroke="#c8a96e" stroke-width="1.5"/>
-          <line x1="1" y1="19" x2="9" y2="19" stroke="#c8a96e" stroke-width="1.5"/>
-          <line x1="29" y1="19" x2="37" y2="19" stroke="#c8a96e" stroke-width="1.5"/>
-          <line x1="4.4" y1="4.4" x2="10.3" y2="10.3" stroke="#c8a96e" stroke-width="1.5"/>
-          <line x1="27.7" y1="27.7" x2="33.6" y2="33.6" stroke="#c8a96e" stroke-width="1.5"/>
-          <line x1="33.6" y1="4.4" x2="27.7" y2="10.3" stroke="#c8a96e" stroke-width="1.5"/>
-          <line x1="10.3" y1="27.7" x2="4.4" y2="33.6" stroke="#c8a96e" stroke-width="1.5"/>
-        </svg>
-        <div>
-          Photo Club Brianconnais
-          <small>Hautes-Alpes · fondé en 1992</small>
-        </div>
-    </a>
-    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
-    <nav>
-        <ul class="nav-menu" id="navMenu">
-            
-            <li><a href="index.html" class="">Accueil</a></li>
-            
-            <li><a href="galerie.html" class="">Galerie</a></li>
-            
-            <li><a href="actualites.html" class="active">Actualités</a></li>
-            
-            <li><a href="contact.html" class="">Contact</a></li>
-            
-            <li><a href="outils-club.html" class="">Outils Club</a></li>
-            
-        </ul>
-    </nav>
-</header>
-
-<section class="hero" id="heroSection">
-    <div style="position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto;">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(200,169,110,.12);border:1px solid rgba(200,169,110,.35);color:var(--gold);font-size:.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;padding:6px 16px;border-radius:100px;margin-bottom:24px;">📷 Club photo · Briançon</div>
-      
-      <h1>Photo Club Brianconnais</h1>
-      
-      
-      
-    </div>
-</section>
-
-<div style="background:var(--gold);padding:16px 32px;">
-  <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;">
-    <div style="text-align:center;color:#111;"><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;display:block;margin-bottom:2px;">Fondé en</span><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">1992</span></div>
-    <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">2×</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">par mois</span></div>
-    <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">FFP</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">Affilié</span></div>
-    <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">∞</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">Tous niveaux</span></div>
-  </div>
-</div>
-<main class="content" id="blocksContainer">
-    
-    
-        <div class="block-wrapper draggable="true" data-index="0">
-            
-            <div class="block news-item" id="block-0" style="overflow:hidden;">
-                
-                    <img src="images/_DSC2224_redim_69ce644d557ba.png" alt="" class="block-image right large">
-                
-                <h3>Soutien au spectacle de l&#039;association Nouvel Envol 05</h3>
-                <div class="date">28 mai à 18h30</div>
+.content { max-width: 1100px; margin: 0 auto; padding: 60px 24px 100px; }
+
+.block-wrapper { position: relative; margin-bottom: 30px; cursor: grab; }
+.block-wrapper:active { cursor: grabbing; }
+.block-wrapper.dragging { opacity: 0.5; transform: scale(0.98); }
+.block-wrapper.drag-over { border: 2px dashed var(--gold); border-radius: 16px; }
+
+.block { background: var(--dark-light); border-radius: 14px; padding: 40px; border: 1px solid rgba(200,169,110,.12); transition: box-shadow .3s, transform .2s; }
+.block:hover { box-shadow: 0 6px 24px rgba(200,169,110,.12); transform: translateY(-2px); }
+.block h2 { font-family: 'Playfair Display', serif; font-size: 1.7rem; color: var(--gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid rgba(200,169,110,.3); }
+.block h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--gold); margin: 16px 0 8px; }
+.block p { color: rgba(240,237,232,.8); line-height: 1.85; font-size: 1rem; }
+.news-item { background: var(--dark-lighter); border-radius: 12px; padding: 28px; border-left: 3px solid var(--gold); }
+.news-item h3 { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 6px; }
+.news-item .date { color: var(--gold-dark); font-size: .82rem; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase; }
+.news-item .block-image { display: block; width: 100%; max-width: 100%; height: auto; margin-bottom: 16px; border-radius: 8px; }
+
+.block-edit-bar { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; opacity: 0; transition: opacity 0.2s; z-index: 10; }
+.block-wrapper:hover .block-edit-bar { opacity: 1; }
+.block-icon-btn { width: 32px; height: 32px; border-radius: 6px; border: 1px solid rgba(212, 175, 55, 0.3); background: rgba(0,0,0,0.8); color: var(--gold); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; transition: all 0.2s; }
+.block-icon-btn:hover { background: var(--gold); color: #000; }
+.block-icon-btn.delete:hover { background: #FF5757; border-color: #FF5757; color: #fff; }
+.block-icon-btn.drag-handle { cursor: grab; }
+
+.block-image { border-radius: 12px; margin-bottom: 20px; transition: width 0.3s; }
+.block-image.left { float: left; margin-right: 24px; margin-bottom: 0; width: 300px; height: 300px; object-fit: cover; }
+.block-image.right { float: right; margin-left: 24px; margin-bottom: 0; width: 300px; height: 300px; object-fit: cover; }
+.block-image.top { width: 100%; margin-bottom: 20px; display: block; }
+.block-image.bottom { width: 100%; margin-top: 20px; display: block; }
+.block-image.small { max-width: 200px; height: auto; }
+.block-image.medium { max-width: 300px; height: auto; }
+.block-image.large { max-width: 400px; height: auto; }
+.block-image.top, .block-image.bottom { max-width: 100% !important; width: 100% !important; height: auto !important; }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+.gallery-item { aspect-ratio: 1; border-radius: 8px; overflow: hidden; cursor: zoom-in; border: 2px solid transparent; transition: all .3s; position: relative; }
+.gallery-item:hover { border-color: var(--gold); transform: scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,.5); }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+
+.contact-form { max-width: 600px; margin: 0 auto; }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+.form-group input, .form-group textarea { width: 100%; padding: 14px 18px; background: var(--dark-lighter); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 10px; color: var(--text); font-size: 16px; font-family: inherit; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); }
+.form-group textarea { min-height: 150px; resize: vertical; }
+
+.btn { padding: 11px 26px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; font-size: .9rem; transition: all .2s; font-family: inherit; }
+.btn-gold { background: var(--gold); color: #111; }
+.btn-gold:hover { background: #d4b87a; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,169,110,.35); }
+.btn-outline { background: transparent; border: 2px solid var(--gold); color: var(--gold); }
+.btn-outline:hover { background: rgba(200,169,110,.1); }
+.btn-sm { padding: 7px 14px; font-size: .82rem; }
+
+.ai-box { background: linear-gradient(135deg, var(--dark-light), var(--dark-lighter)); border: 2px solid var(--gold); border-radius: 20px; padding: 32px; margin: 40px 0; }
+.ai-box.green { border-color: #1EA97C; }
+.ai-box h3 { font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+.ai-box.green h3 { color: #1EA97C; }
+.ai-textarea { width: 100%; min-height: 100px; padding: 18px; background: var(--dark); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 12px; color: var(--text); font-family: inherit; font-size: 16px; resize: vertical; }
+.ai-result { margin-top: 20px; padding: 20px; background: var(--dark); border-radius: 12px; border-left: 4px solid var(--gold); }
+.ai-loading { display: none; align-items: center; gap: 12px; margin-top: 16px; color: var(--gold); }
+.ai-loading.show { display: flex; }
+.spinner { width: 24px; height: 24px; border: 3px solid rgba(212, 175, 55, 0.2); border-top-color: var(--gold); border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.editor-panel { position: fixed; top: 0; left: -450px; bottom: 0; width: 450px; background: var(--dark-light); border-right: 1px solid rgba(200,169,110,.2); overflow-y: auto; z-index: 1001; transition: left .3s ease; padding: 20px; }
+.editor-panel.active { left: 0; }
+.editor-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 1px solid rgba(200,169,110,.2); margin-bottom: 20px; }
+.editor-header h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; }
+.editor-close { background: none; border: none; color: var(--text); font-size: 28px; cursor: pointer; padding: 0; }
+.editor-section { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+.editor-section h3 { color: var(--gold); font-size: 14px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+.editor-tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+.editor-tab { padding: 10px 14px; background: var(--dark); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 8px; color: var(--text); cursor: pointer; font-size: 12px; transition: all 0.3s; }
+.editor-tab.active, .editor-tab:hover { background: rgba(212, 175, 55, 0.2); border-color: var(--gold); color: var(--gold); }
+.editor-content { display: none; }
+.editor-content.active { display: block; }
+
+.block-list { margin-top: 16px; }
+.block-item { background: var(--dark); border-radius: 10px; padding: 14px; margin-bottom: 10px; border: 1px solid rgba(212, 175, 55, 0.1); }
+.block-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.block-item-type { color: var(--gold); font-size: 11px; text-transform: uppercase; }
+.block-item-actions { display: flex; gap: 6px; }
+.block-item-actions button { padding: 5px 10px; border-radius: 5px; border: none; cursor: pointer; font-size: 11px; }
+.edit-btn { background: rgba(212, 175, 55, 0.2); color: var(--gold); }
+.delete-btn { background: rgba(255, 87, 87, 0.2); color: #FF5757; }
+.move-btn { background: rgba(255, 255, 255, 0.1); color: var(--text); }
+.add-block-btn { padding: 12px; background: var(--dark); border: 1px dashed rgba(212, 175, 55, 0.3); border-radius: 8px; color: var(--gold); cursor: pointer; font-size: 13px; width: 100%; margin-top: 8px; }
+.add-block-btn:hover { background: rgba(212, 175, 55, 0.1); }
+
+.image-picker { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 12px; max-height: 400px; overflow-y: auto; padding: 6px; }
+.image-picker-item { aspect-ratio: 1; border-radius: 8px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; position: relative; }
+.image-picker-item:hover, .image-picker-item.selected { border-color: var(--gold); }
+.image-picker-item img { width: 100%; height: 100%; object-fit: cover; }
+.image-picker-item .img-name { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.8); color: var(--gold); font-size: 10px; padding: 4px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.image-picker-item.in-gallery { border-color: var(--gold) !important; }
+.image-picker-item.in-gallery .img-name { color: var(--gold); }
+
+.toggle-editor { position: fixed; top: 50%; left: 0; transform: translateY(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border: none; border-radius: 0 12px 12px 0; cursor: pointer; font-size: 24px; z-index: 999; display: flex; align-items: center; justify-content: center; }
+.toggle-editor:hover { left: 0 !important; }
+
+.login-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); display: flex; align-items: center; justify-content: center; z-index: 2000; }
+.login-box { background: var(--dark-light); padding: 48px; border-radius: 24px; width: 420px; max-width: 90%; text-align: center; border: 1px solid rgba(212, 175, 55, 0.2); }
+.login-box h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); margin-bottom: 8px; }
+.login-box p { color: var(--text-dim); margin-bottom: 28px; }
+.login-box input { width: 100%; padding: 16px; background: var(--dark); border: 2px solid rgba(212, 175, 55, 0.3); border-radius: 12px; color: var(--text); font-size: 18px; text-align: center; margin-bottom: 20px; }
+.login-box input:focus { outline: none; border-color: var(--gold); }
+
+.footer { background: var(--dark); border-top: 1px solid rgba(200,169,110,.2); padding: 40px 32px; text-align: center; }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 12px; letter-spacing: .5px; }
+.footer p { color: var(--text-dim); font-size: .85rem; margin-top: 4px; }
+
+.mobile-menu-btn { display: none; background: none; border: none; color: var(--gold); font-size: 28px; cursor: pointer; }
+@media (max-width: 768px) {
+    .mobile-menu-btn { display: block; }
+    .nav-menu { display: none; position: absolute; top: 70px; left: 0; right: 0; background: var(--dark-light); flex-direction: column; padding: 16px; border-top: 1px solid rgba(212, 175, 55, 0.2); }
+    .nav-menu.open { display: flex; }
+    .hero h1 { font-size: 32px; }
+    .block { padding: 24px; }
+    .editor-panel { width: 100%; left: -100%; }
+}
+.site-watermark { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); font-size: 12px; color: var(--gold); opacity: 0.5; }
+
+/* Lightbox Gallery */
+.lightbox { position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; align-items: center; justify-content: center; z-index: 3000; padding: 20px; }
+.lightbox.active { display: flex; }
+.lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; }
+.lightbox-content img { max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 8px; }
+.lightbox-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: #fff; font-size: 32px; cursor: pointer; }
+.lightbox-close:hover { color: var(--gold); }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: #fff; font-size: 40px; cursor: pointer; padding: 10px 20px; border-radius: 8px; }
+.lightbox-nav:hover { background: var(--gold); color: #000; }
+.lightbox-nav.prev { left: -60px; }
+.lightbox-nav.next { right: -60px; }
+.lightbox-counter { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); color: #888; font-size: 14px; }
+
+/* Chat AI */
+.chat-container { background: var(--dark); border-radius: 16px; overflow: hidden; margin-bottom: 20px; }
+.chat-messages { max-height: 300px; overflow-y: auto; padding: 20px; }
+.chat-message { margin-bottom: 16px; padding: 12px 16px; border-radius: 12px; font-size: 14px; line-height: 1.6; }
+.chat-message.user { background: rgba(212, 175, 55, 0.2); margin-left: 40px; }
+.chat-message.ai { background: rgba(30, 169, 124, 0.2); margin-right: 40px; border-left: 3px solid #1EA97C; }
+.chat-input-area { display: flex; gap: 10px; padding: 16px; border-top: 1px solid rgba(212, 175, 55, 0.1); }
+.chat-input-area input { flex: 1; padding: 12px 16px; background: var(--dark-lighter); border: 1px solid rgba(212, 175, 55, 0.2); border-radius: 8px; color: var(--text); font-size: 14px; }
+.chat-input-area button { padding: 12px 20px; }
+
+.suggestion-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.suggestion-chip { padding: 8px 14px; background: var(--dark); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 20px; color: var(--gold); font-size: 12px; cursor: pointer; transition: all 0.2s; }
+.suggestion-chip:hover { background: rgba(212, 175, 55, 0.2); }
+
+/* Generated blocks preview */
+.generated-blocks-preview { background: var(--dark); border-radius: 12px; padding: 20px; margin-top: 20px; border: 2px dashed rgba(212, 175, 55, 0.3); }
+.generated-block-item { background: var(--dark-lighter); padding: 16px; border-radius: 10px; margin-bottom: 12px; border-left: 3px solid #1EA97C; }
+.generated-block-item h4 { color: var(--gold); margin-bottom: 8px; font-size: 14px; }
+.generated-block-item p { font-size: 13px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="header-logo">
+        <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:34px;height:34px;flex-shrink:0;">
+          <circle cx="19" cy="19" r="18" stroke="#c8a96e" stroke-width="1.5"/>
+          <circle cx="19" cy="19" r="10" stroke="#c8a96e" stroke-width="1.5"/>
+          <line x1="19" y1="1" x2="19" y2="9" stroke="#c8a96e" stroke-width="1.5"/>
+          <line x1="19" y1="29" x2="19" y2="37" stroke="#c8a96e" stroke-width="1.5"/>
+          <line x1="1" y1="19" x2="9" y2="19" stroke="#c8a96e" stroke-width="1.5"/>
+          <line x1="29" y1="19" x2="37" y2="19" stroke="#c8a96e" stroke-width="1.5"/>
+          <line x1="4.4" y1="4.4" x2="10.3" y2="10.3" stroke="#c8a96e" stroke-width="1.5"/>
+          <line x1="27.7" y1="27.7" x2="33.6" y2="33.6" stroke="#c8a96e" stroke-width="1.5"/>
+          <line x1="33.6" y1="4.4" x2="27.7" y2="10.3" stroke="#c8a96e" stroke-width="1.5"/>
+          <line x1="10.3" y1="27.7" x2="4.4" y2="33.6" stroke="#c8a96e" stroke-width="1.5"/>
+        </svg>
+        <div>
+          Photo Club Brianconnais        </div>
+    </a>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">&#9776;</button>
+    <nav>
+        <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="">Accueil</a></li>
+                        <li><a href="galerie.html" class="">Galerie</a></li>
+                        <li><a href="actualites.html" class="active">Actualités</a></li>
+                        <li><a href="contact.html" class="">Contact</a></li>
+                        <li><a href="outils-club.html" class="">Outils Club</a></li>
+                    </ul>
+    </nav>
+</header>
+
+<section class="hero" id="heroSection">
+    <div style="position:relative;z-index:1;text-align:center;max-width:800px;margin:0 auto;">
+            <h1>Photo Club Brianconnais</h1>
+                      </div>
+</section>
+
+<div style="background:var(--gold);padding:16px 32px;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:center;gap:60px;flex-wrap:wrap;">
+    <div style="text-align:center;color:#111;"><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;display:block;margin-bottom:2px;">Fondé en</span><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">1992</span></div>
+    <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">2×</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">par mois</span></div>
+    <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">FFP</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">Affilié</span></div>
+    <div style="text-align:center;color:#111;"><span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;display:block;line-height:1;">∞</span><span style="font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;">Tous niveaux</span></div>
+  </div>
+</div>
+<main class="content" id="blocksContainer">
+                <div class="block-wrapper draggable="true" data-index="0">
+                        <div class="block news-item" id="block-0" style="overflow:hidden;">
+                                    <img src="images/_DSC2224_redim_69ce644d557ba.png" alt="" class="block-image right large">
+                                <h3>Soutien au spectacle de l&#039;association Nouvel Envol 05</h3>
+                <div class="date">28 mai à 18h30</div>
                 <p>Nous sommes fiers de soutenir l&#039;association Nouvel Envol pour leur spectacle exceptionnel mettant en scène 50 personnes en situation de handicap. C&#039;est un événement humain et artistique unique que nous vous invitons à partager avec nous.
 
 Deux représentations sont programmées pour vous permettre de découvrir leur talent : la première se tiendra le 21 mai à 18h30 à la salle Le Tempo de Gap, et la seconde aura lieu le<strong> 28 mai à 18h30 au Théâtre de Briançon.</strong> Veuillez noter que l&#039;entrée est payante.
 
 À cette occasion, les membres du Photo Club Briançonnais réaliseront un reportage complet en salle et dans les coulisses afin d&#039;immortaliser chaque instant de ce moment fort et d&#039;offrir aux participants des souvenirs inoubliables.
-</p>
-            </div>
-        </div>
-    
-    
-    
-        <div class="block-wrapper draggable="true" data-index="1">
-            
-            <div class="block news-item" id="block-1" style="overflow:hidden;">
-                
-                    <img src="images/img_69cd7d741af45.jpg" alt="" class="block-image left medium">
-                
-                <h3>Prochaine réunion</h3>
-                <div class="date"> le 14 avril à 19h</div>
+</p>
+            </div>
+        </div>
+                    <div class="block-wrapper draggable="true" data-index="1">
+                        <div class="block news-item" id="block-1" style="overflow:hidden;">
+                                    <img src="images/img_69cd7d741af45.jpg" alt="" class="block-image left medium">
+                                <h3>Prochaine réunion</h3>
+                <div class="date"> le 14 avril à 19h</div>
                 <p>Lors de notre prochaine rencontre, nous mettrons l&#039;accent sur une technique qui peut paraître complexe au premier abord, mais qui vous permettra de réaliser d&#039;excellentes photos : la photographie à haute vitesse.
 
 Si ce terme vous est inconnu, sachez que cette technique est notamment utilisée pour capturer des éclairs, des impacts de gouttes d&#039;eau et bien d&#039;autres phénomènes rapides. Nous espérons vous voir nombreux le 31 mars pour démystifier cette pratique encore trop peu connue.
 
-Jean-Luc animera ce cours et nous permettra de nous essayer concrètement à cette technique. En parallèle, nous invitons nos membres à travailler sur le sujet de la prochaine exposition : les forts qui entourent le Briançonnais.</p>
-            </div>
-        </div>
-    
-    
-    
-    
-    <div class="ai-box" style="border-color:#666;">
-        <h3 style="color:#888;"><span>&#128247;</span> Redimensionner une image</h3>
-        <p style="color:var(--text-dim);margin-bottom:16px;font-size:14px;">Choisissez une image existante ou uploadez-en une nouvelle.</p>
-        
-        <div class="editor-section">
-            <h3 style="font-size:12px;">Images du Raspberry (53)</h3>
-            <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-height:200px;overflow-y:auto;margin-bottom:12px;">
-                
-                <div onclick="selectImageForResize('images/_DSC2224_redim_69ce644d557ba.png')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-1826d26da119e25fcb3423bdb35b441c">
-                    <img src="images/_DSC2224_redim_69ce644d557ba.png" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccb8e438610.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-c7f28f2c16f42f84b1a97da7cbe456e9">
-                    <img src="images/img_69ccb8e438610.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccb8f6cd896.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-f6e9b5b482db39e7e9651612ac4edad3">
-                    <img src="images/img_69ccb8f6cd896.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccb901e42bf.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-be8a9cbb5c2f90ac046788c3b838b2ff">
-                    <img src="images/img_69ccb901e42bf.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccb916827c1.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-6e3cc0b5ae2ca591e45bbb306389faf7">
-                    <img src="images/img_69ccb916827c1.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccbc5d34f0c.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-7c9c35df823f4d1b567e1a3261e378bb">
-                    <img src="images/img_69ccbc5d34f0c.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccbc683a72d.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-7de32b78c7dbad0e60c874baf5329b5d">
-                    <img src="images/img_69ccbc683a72d.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccbc70f11fa.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4008c92b73434cdfcd529bfe72c098a7">
-                    <img src="images/img_69ccbc70f11fa.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccbd36d3c58.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-8bda108ce0299a2af47b52b49828deb3">
-                    <img src="images/img_69ccbd36d3c58.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccc0d38df55.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-2fc66c62a04b2e6f6b5eb1a01d1b28ac">
-                    <img src="images/img_69ccc0d38df55.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccc9f260e9e.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4bf63f7d7dae67a47eba697bf557d391">
-                    <img src="images/img_69ccc9f260e9e.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccab6ddf89.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-2b0f383f0ee35e3e0b20ad53acfa8dd8">
-                    <img src="images/img_69cccab6ddf89.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccae4eb166.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-dcb26e838fca1fd06e2b9c3c49a46564">
-                    <img src="images/img_69cccae4eb166.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb0f97640.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-916053a183d2b2e5f1e03d91cdd0bc7d">
-                    <img src="images/img_69cccb0f97640.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb2b61e28.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-1353a22a83f6fc2813613de4fd14ebc5">
-                    <img src="images/img_69cccb2b61e28.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb39442dc.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-cc07ae7ff82c83fee07b604f406d3c12">
-                    <img src="images/img_69cccb39442dc.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb3e2365f.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4a3279d2df7e106df55690cf1b19a2ee">
-                    <img src="images/img_69cccb3e2365f.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb4539d57.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-c72e906f66f1557797c7851516969b47">
-                    <img src="images/img_69cccb4539d57.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb4c7fd0b.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4ac2ddcb30da6f11b76cf8b5b33c2efc">
-                    <img src="images/img_69cccb4c7fd0b.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb5633da3.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-b3eff17b1b6aff8e5e5d94b04b980a03">
-                    <img src="images/img_69cccb5633da3.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb605aece.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-3d5b498e7d9da9d7aa74f097262fd42e">
-                    <img src="images/img_69cccb605aece.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb68c2ef5.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-d0b5847835ec2883586993090efd8bfa">
-                    <img src="images/img_69cccb68c2ef5.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb6e710e1.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-9cc6dc4a8fa3f96c603adfa268a33f57">
-                    <img src="images/img_69cccb6e710e1.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb731e1d0.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-fa1e79d966f485f2be1dcf4ce34e8a44">
-                    <img src="images/img_69cccb731e1d0.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb76817af.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-0a0d21f3c44c53b15b65fe6bc0572f33">
-                    <img src="images/img_69cccb76817af.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb7d98bc8.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-fbd9775e9468cdf6569238289f0d78e7">
-                    <img src="images/img_69cccb7d98bc8.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb81c2fd8.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-1bdbaef77250d311687713e494862165">
-                    <img src="images/img_69cccb81c2fd8.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccb87364f8.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-57bb97ac90156983cb6a94fc8c289668">
-                    <img src="images/img_69cccb87364f8.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccba271855.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-f2dcf33a7b1b38579327e3254832192e">
-                    <img src="images/img_69cccba271855.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccba5ef436.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-e0f81d14a254be5fb4e3b0a190ec0a70">
-                    <img src="images/img_69cccba5ef436.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccbad03d54.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-9039fec1347d52f35017a41816e7b1fa">
-                    <img src="images/img_69cccbad03d54.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccbb1b6575.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-5b19203b56e5e8c31c15f249956be8c0">
-                    <img src="images/img_69cccbb1b6575.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccbfc82ceb.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-fd1fa7c6e0e23858a42bb261b3a2a8d1">
-                    <img src="images/img_69cccbfc82ceb.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69ccccc543064.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-9be8d472350c708092911bd050d43d89">
-                    <img src="images/img_69ccccc543064.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cccd5238a62.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-24f04f6459bea86618648c4779b7f9ae">
-                    <img src="images/img_69cccd5238a62.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd499ab57af.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-abc5533f7e2f51f14e55a255f3f84e00">
-                    <img src="images/img_69cd499ab57af.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd501217125.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-00ba5fbd1b255a0a0af4a94b252a56e9">
-                    <img src="images/img_69cd501217125.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd538864850.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-7718051fb72f7ab7dfd8c013b0a020ad">
-                    <img src="images/img_69cd538864850.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd547422474.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-daf14d509b3262b296dc4366bf574661">
-                    <img src="images/img_69cd547422474.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd54ee11d9e.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-6354e7fd002f2cfc0f24e29275a8d82a">
-                    <img src="images/img_69cd54ee11d9e.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd54f4a6094.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-d33dee5cae57407b0577ff733532d46c">
-                    <img src="images/img_69cd54f4a6094.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd55088e060.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-60398bd8d1f2b3bf1a7b479adc757f5b">
-                    <img src="images/img_69cd55088e060.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd56a22683e.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4aca0436cfa46341a833205da7d61e42">
-                    <img src="images/img_69cd56a22683e.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd56c498d27.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-c976bc6071631e5a4ddc4f78ab104be8">
-                    <img src="images/img_69cd56c498d27.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd56dc7ac4a.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-f2bd865695e092d0a377f0f234846c74">
-                    <img src="images/img_69cd56dc7ac4a.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd56e71d824.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-e52fab944f32b8737551cbc03b873ca6">
-                    <img src="images/img_69cd56e71d824.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd56eca0183.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-f8c9ea8245439dab413ff3c214c2de7d">
-                    <img src="images/img_69cd56eca0183.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd584e82fb3.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-6086c906a79632a810bb2f8b37fad350">
-                    <img src="images/img_69cd584e82fb3.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd6907ab9d6.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-7ac696086a6af3b15286704c13acc4bf">
-                    <img src="images/img_69cd6907ab9d6.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd6ac5d7c85.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-ecf7c256edf8e4ce2bc1c8f42824f2fb">
-                    <img src="images/img_69cd6ac5d7c85.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd7adb465a3.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-dd8085e8f55f621bcc0a80f872b7066d">
-                    <img src="images/img_69cd7adb465a3.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd7c09b62a9.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-67e186727e266732d023b86126074924">
-                    <img src="images/img_69cd7c09b62a9.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                <div onclick="selectImageForResize('images/img_69cd7d741af45.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-73b47d6281f90ceef5b6cf4c6b616e2b">
-                    <img src="images/img_69cd7d741af45.jpg" style="width:100%;height:100%;object-fit:cover;">
-                </div>
-                
-                
-            </div>
-        </div>
-        
-        <div style="text-align:center;color:var(--text-dim);margin:8px 0;">- OU -</div>
-        
-        <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;">
-            <input type="file" id="resizeInput" accept="image/*" style="flex:1;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:8px;color:var(--text);">
-        </div>
-        <div id="resizePreview" style="display:none;margin:16px 0;text-align:center;">
-            <img id="resizePreviewImg" style="max-width:100%;max-height:300px;border-radius:8px;border:2px solid var(--gold);">
-            <p style="margin-top:8px;color:var(--text-dim);font-size:12px;">Dimensions actuelles: <span id="origDimensions"></span></p>
-        </div>
-        <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;">
-            <div style="flex:1;">
-                <label style="color:var(--gold);font-size:12px;">Largeur</label>
-                <input type="number" id="resizeWidth" placeholder="px" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:8px;color:var(--text);">
-            </div>
-            <div style="flex:1;">
-                <label style="color:var(--gold);font-size:12px;">Hauteur</label>
-                <input type="number" id="resizeHeight" placeholder="px" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:8px;color:var(--text);">
-            </div>
-            <div style="flex:1;">
-                <label style="color:var(--gold);font-size:12px;">%</label>
-                <input type="number" id="resizePercent" placeholder="%" min="1" max="200" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:8px;color:var(--text);" oninput="applyResizePercent()">
-            </div>
-        </div>
-        <div style="display:flex;gap:12px;">
-            <button class="btn btn-gold" onclick="downloadResizedImage()" style="background:#666;flex:1;">Telecharger l'image redimensionnee</button>
-            <button class="btn btn-outline" onclick="clearResize()" style="flex:1;">Effacer</button>
-        </div>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-
-
+Jean-Luc animera ce cours et nous permettra de nous essayer concrètement à cette technique. En parallèle, nous invitons nos membres à travailler sur le sujet de la prochaine exposition : les forts qui entourent le Briançonnais.</p>
+            </div>
+        </div>
+            
+        <div class="ai-box" style="border-color:#666;">
+        <h3 style="color:#888;"><span>&#128247;</span> Redimensionner une image</h3>
+        <p style="color:var(--text-dim);margin-bottom:16px;font-size:14px;">Choisissez une image existante ou uploadez-en une nouvelle.</p>
+        
+        <div class="editor-section">
+            <h3 style="font-size:12px;">Images du Raspberry (53)</h3>
+            <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-height:200px;overflow-y:auto;margin-bottom:12px;">
+                                <div onclick="selectImageForResize('images/_DSC2224_redim_69ce644d557ba.png')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-1826d26da119e25fcb3423bdb35b441c">
+                    <img src="images/_DSC2224_redim_69ce644d557ba.png" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccb8e438610.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-c7f28f2c16f42f84b1a97da7cbe456e9">
+                    <img src="images/img_69ccb8e438610.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccb8f6cd896.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-f6e9b5b482db39e7e9651612ac4edad3">
+                    <img src="images/img_69ccb8f6cd896.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccb901e42bf.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-be8a9cbb5c2f90ac046788c3b838b2ff">
+                    <img src="images/img_69ccb901e42bf.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccb916827c1.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-6e3cc0b5ae2ca591e45bbb306389faf7">
+                    <img src="images/img_69ccb916827c1.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccbc5d34f0c.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-7c9c35df823f4d1b567e1a3261e378bb">
+                    <img src="images/img_69ccbc5d34f0c.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccbc683a72d.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-7de32b78c7dbad0e60c874baf5329b5d">
+                    <img src="images/img_69ccbc683a72d.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccbc70f11fa.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4008c92b73434cdfcd529bfe72c098a7">
+                    <img src="images/img_69ccbc70f11fa.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccbd36d3c58.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-8bda108ce0299a2af47b52b49828deb3">
+                    <img src="images/img_69ccbd36d3c58.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccc0d38df55.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-2fc66c62a04b2e6f6b5eb1a01d1b28ac">
+                    <img src="images/img_69ccc0d38df55.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccc9f260e9e.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4bf63f7d7dae67a47eba697bf557d391">
+                    <img src="images/img_69ccc9f260e9e.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccab6ddf89.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-2b0f383f0ee35e3e0b20ad53acfa8dd8">
+                    <img src="images/img_69cccab6ddf89.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccae4eb166.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-dcb26e838fca1fd06e2b9c3c49a46564">
+                    <img src="images/img_69cccae4eb166.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb0f97640.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-916053a183d2b2e5f1e03d91cdd0bc7d">
+                    <img src="images/img_69cccb0f97640.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb2b61e28.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-1353a22a83f6fc2813613de4fd14ebc5">
+                    <img src="images/img_69cccb2b61e28.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb39442dc.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-cc07ae7ff82c83fee07b604f406d3c12">
+                    <img src="images/img_69cccb39442dc.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb3e2365f.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4a3279d2df7e106df55690cf1b19a2ee">
+                    <img src="images/img_69cccb3e2365f.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb4539d57.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-c72e906f66f1557797c7851516969b47">
+                    <img src="images/img_69cccb4539d57.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb4c7fd0b.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4ac2ddcb30da6f11b76cf8b5b33c2efc">
+                    <img src="images/img_69cccb4c7fd0b.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb5633da3.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-b3eff17b1b6aff8e5e5d94b04b980a03">
+                    <img src="images/img_69cccb5633da3.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb605aece.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-3d5b498e7d9da9d7aa74f097262fd42e">
+                    <img src="images/img_69cccb605aece.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb68c2ef5.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-d0b5847835ec2883586993090efd8bfa">
+                    <img src="images/img_69cccb68c2ef5.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb6e710e1.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-9cc6dc4a8fa3f96c603adfa268a33f57">
+                    <img src="images/img_69cccb6e710e1.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb731e1d0.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-fa1e79d966f485f2be1dcf4ce34e8a44">
+                    <img src="images/img_69cccb731e1d0.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb76817af.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-0a0d21f3c44c53b15b65fe6bc0572f33">
+                    <img src="images/img_69cccb76817af.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb7d98bc8.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-fbd9775e9468cdf6569238289f0d78e7">
+                    <img src="images/img_69cccb7d98bc8.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb81c2fd8.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-1bdbaef77250d311687713e494862165">
+                    <img src="images/img_69cccb81c2fd8.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccb87364f8.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-57bb97ac90156983cb6a94fc8c289668">
+                    <img src="images/img_69cccb87364f8.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccba271855.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-f2dcf33a7b1b38579327e3254832192e">
+                    <img src="images/img_69cccba271855.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccba5ef436.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-e0f81d14a254be5fb4e3b0a190ec0a70">
+                    <img src="images/img_69cccba5ef436.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccbad03d54.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-9039fec1347d52f35017a41816e7b1fa">
+                    <img src="images/img_69cccbad03d54.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccbb1b6575.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-5b19203b56e5e8c31c15f249956be8c0">
+                    <img src="images/img_69cccbb1b6575.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccbfc82ceb.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-fd1fa7c6e0e23858a42bb261b3a2a8d1">
+                    <img src="images/img_69cccbfc82ceb.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69ccccc543064.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-9be8d472350c708092911bd050d43d89">
+                    <img src="images/img_69ccccc543064.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cccd5238a62.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-24f04f6459bea86618648c4779b7f9ae">
+                    <img src="images/img_69cccd5238a62.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd499ab57af.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-abc5533f7e2f51f14e55a255f3f84e00">
+                    <img src="images/img_69cd499ab57af.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd501217125.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-00ba5fbd1b255a0a0af4a94b252a56e9">
+                    <img src="images/img_69cd501217125.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd538864850.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-7718051fb72f7ab7dfd8c013b0a020ad">
+                    <img src="images/img_69cd538864850.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd547422474.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-daf14d509b3262b296dc4366bf574661">
+                    <img src="images/img_69cd547422474.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd54ee11d9e.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-6354e7fd002f2cfc0f24e29275a8d82a">
+                    <img src="images/img_69cd54ee11d9e.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd54f4a6094.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-d33dee5cae57407b0577ff733532d46c">
+                    <img src="images/img_69cd54f4a6094.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd55088e060.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-60398bd8d1f2b3bf1a7b479adc757f5b">
+                    <img src="images/img_69cd55088e060.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd56a22683e.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-4aca0436cfa46341a833205da7d61e42">
+                    <img src="images/img_69cd56a22683e.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd56c498d27.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-c976bc6071631e5a4ddc4f78ab104be8">
+                    <img src="images/img_69cd56c498d27.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd56dc7ac4a.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-f2bd865695e092d0a377f0f234846c74">
+                    <img src="images/img_69cd56dc7ac4a.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd56e71d824.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-e52fab944f32b8737551cbc03b873ca6">
+                    <img src="images/img_69cd56e71d824.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd56eca0183.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-f8c9ea8245439dab413ff3c214c2de7d">
+                    <img src="images/img_69cd56eca0183.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd584e82fb3.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-6086c906a79632a810bb2f8b37fad350">
+                    <img src="images/img_69cd584e82fb3.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd6907ab9d6.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-7ac696086a6af3b15286704c13acc4bf">
+                    <img src="images/img_69cd6907ab9d6.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd6ac5d7c85.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-ecf7c256edf8e4ce2bc1c8f42824f2fb">
+                    <img src="images/img_69cd6ac5d7c85.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd7adb465a3.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-dd8085e8f55f621bcc0a80f872b7066d">
+                    <img src="images/img_69cd7adb465a3.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd7c09b62a9.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-67e186727e266732d023b86126074924">
+                    <img src="images/img_69cd7c09b62a9.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                <div onclick="selectImageForResize('images/img_69cd7d741af45.jpg')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.2s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'" id="resize-thumb-73b47d6281f90ceef5b6cf4c6b616e2b">
+                    <img src="images/img_69cd7d741af45.jpg" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                                            </div>
+        </div>
+        
+        <div style="text-align:center;color:var(--text-dim);margin:8px 0;">- OU -</div>
+        
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;">
+            <input type="file" id="resizeInput" accept="image/*" style="flex:1;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:8px;color:var(--text);">
+        </div>
+        <div id="resizePreview" style="display:none;margin:16px 0;text-align:center;">
+            <img id="resizePreviewImg" style="max-width:100%;max-height:300px;border-radius:8px;border:2px solid var(--gold);">
+            <p style="margin-top:8px;color:var(--text-dim);font-size:12px;">Dimensions actuelles: <span id="origDimensions"></span></p>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;">
+            <div style="flex:1;">
+                <label style="color:var(--gold);font-size:12px;">Largeur</label>
+                <input type="number" id="resizeWidth" placeholder="px" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:8px;color:var(--text);">
+            </div>
+            <div style="flex:1;">
+                <label style="color:var(--gold);font-size:12px;">Hauteur</label>
+                <input type="number" id="resizeHeight" placeholder="px" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:8px;color:var(--text);">
+            </div>
+            <div style="flex:1;">
+                <label style="color:var(--gold);font-size:12px;">%</label>
+                <input type="number" id="resizePercent" placeholder="%" min="1" max="200" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:8px;color:var(--text);" oninput="applyResizePercent()">
+            </div>
+        </div>
+        <div style="display:flex;gap:12px;">
+            <button class="btn btn-gold" onclick="downloadResizedImage()" style="background:#666;flex:1;">Telecharger l'image redimensionnee</button>
+            <button class="btn btn-outline" onclick="clearResize()" style="flex:1;">Effacer</button>
+        </div>
+    </div>
+        
+        
+            
+
+
 
     
-    
-</main>
-
+    </main>
 
-<footer class="footer">
-    
-    <div class="footer-logo">Photo Club Brianconnais</div>
-    
-    
-    <p>Briancon, Hautes-Alpes</p>
-    
-    
-    <p style="margin-top:12px;color:rgba(200,169,110,.5);font-size:.78rem;">Affilié à la Fédération Photographique de France · Fondé en 1992</p>
-</footer>
-
-<script>
-// Lightbox Gallery
-let currentImageIndex = 0;
-let galleryImages = [];
-
-galleryImages = ["images\/img_69ccb8f6cd896.jpg","images\/img_69ccb901e42bf.jpg","images\/img_69ccbc5d34f0c.jpg","images\/img_69ccc9f260e9e.jpg","images\/img_69cccab6ddf89.jpg","images\/img_69ccc0d38df55.jpg","images\/img_69ccbd36d3c58.jpg","images\/img_69ccbc70f11fa.jpg","images\/img_69ccbc683a72d.jpg","images\/img_69cccae4eb166.jpg","images\/img_69cccb0f97640.jpg","images\/img_69cccb2b61e28.jpg","images\/img_69cccb39442dc.jpg","images\/img_69cccb3e2365f.jpg","images\/img_69cccb4539d57.jpg","images\/img_69cccb4c7fd0b.jpg","images\/img_69cccb5633da3.jpg","images\/img_69cccb68c2ef5.jpg","images\/img_69cccb6e710e1.jpg","images\/img_69cccb731e1d0.jpg","images\/img_69cccba5ef436.jpg","images\/img_69cccba271855.jpg","images\/img_69cccb87364f8.jpg","images\/img_69cccb81c2fd8.jpg","images\/img_69cccb7d98bc8.jpg","images\/img_69cccb76817af.jpg","images\/img_69cccbb1b6575.jpg","images\/img_69cd499ab57af.jpg","images\/img_69cd538864850.jpg","images\/img_69cd7d741af45.jpg","images\/img_69ccb8e438610.jpg","images\/img_69cd584e82fb3.jpg"].map(p => window.location.origin + '/' + p);
-
-function toggleGalleryImage(path, el) {
-    const isInGallery = el.style.borderColor === 'var(--gold)' || el.style.borderColor === 'rgb(212, 175, 55)';
-    
-    if (isInGallery) {
-        removeFromGallery(path);
-    } else {
-        addToGallery(path);
-    }
-}
-
-function addToGallery(path) {
-    fetch('?page=galerie', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=add_to_gallery&path=' + encodeURIComponent(path)
-    })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) {
-            location.reload();
-        }
-    });
-}
-
-function removeFromGallery(path) {
-    if (!confirm('Retirer cette image de la galerie ?')) return;
-    fetch('?page=galerie', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=remove_from_gallery&path=' + encodeURIComponent(path)
-    })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) {
-            location.reload();
-        }
-    });
-}
-
-function openLightbox(index) {
-    currentImageIndex = index;
-    const img = document.getElementById('lightbox-img');
-    img.src = galleryImages[currentImageIndex];
-    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function prevImage(e) {
-    e.stopPropagation();
-    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-    document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
-    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
-}
-
-function nextImage(e) {
-    e.stopPropagation();
-    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-    document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
-    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
-}
-
-document.addEventListener('keydown', function(e) {
-    if (!document.getElementById('lightbox').classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') prevImage(e);
-    if (e.key === 'ArrowRight') nextImage(e);
-});
-
-</script>
-
+<footer class="footer">
+        <div class="footer-logo">Photo Club Brianconnais</div>
+            <p>Briancon, Hautes-Alpes</p>
+            <p style="margin-top:12px;color:rgba(200,169,110,.5);font-size:.78rem;">Affilié à la Fédération Photographique de France · Fondé en 1992</p>
+</footer>
 
-
-<script>
-let currentHeroImage = 'images/img_69ccb901e42bf.jpg';
-let currentHeight = 60;
-let currentPosition = 0;
-let currentOpacity = 0.4;
-let chatConversation = '';
-let chatMessageCount = 0;
-
-function toggleMobileMenu() { document.getElementById('navMenu').classList.toggle('open'); }
-function toggleEditor() { document.getElementById('editorPanel').classList.toggle('active'); }
-function switchTab(tab) {
-    document.querySelectorAll('.editor-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.editor-content').forEach(c => c.classList.remove('active'));
-    document.querySelector(`.editor-tab[onclick="switchTab('${tab}')"]`).classList.add('active');
-    document.getElementById('tab-' + tab).classList.add('active');
-}
-
-function updateSiteName(val) { document.getElementById('previewTitle').textContent = val; document.querySelector('.hero h1').textContent = val; }
-function updateMeeting(val) { document.getElementById('previewMeeting').textContent = val; document.querySelector('.hero-info').innerHTML = '<span>&#128205;</span> ' + val; }
-
-function updateHero(type, val) {
-    if (type === 'height') {
-        currentHeight = val;
-        document.getElementById('heightVal').textContent = val;
-        document.getElementById('heroSection').style.minHeight = val + 'vh';
-        document.getElementById('heroPreview').style.minHeight = (val * 0.3) + 'px';
-    }
-    if (type === 'position') {
-        currentPosition = val;
-        document.getElementById('posVal').textContent = val;
-        if (currentHeroImage) {
-            document.getElementById('heroSection').style.backgroundPosition = 'center ' + val + '%';
-        }
-    }
-    if (type === 'opacity') {
-        currentOpacity = val;
-        document.getElementById('opacityVal').textContent = val;
-    }
-    updateHeroPreview();
-}
-
-function updateHeroPreview() {
-    const hero = document.getElementById('heroSection');
-    if (currentHeroImage) {
-        hero.style.backgroundImage = 'url(' + currentHeroImage + ')';
-        hero.style.backgroundSize = 'cover';
-        hero.style.backgroundPosition = 'center ' + currentPosition + '%';
-    }
-}
-
-function selectHeroImage(path) {
-    document.querySelectorAll('.image-picker-item').forEach(el => el.classList.remove('selected'));
-    event.currentTarget.classList.add('selected');
-    currentHeroImage = path;
-    updateHeroPreview();
-}
-
-function saveHeroSettings() {
-    saveConfigData({
-        hero_image: currentHeroImage,
-        hero_height: currentHeight,
-        hero_position: currentPosition,
-        hero_image_opacity: currentOpacity,
-        show_slogan: document.getElementById('show-slogan').checked,
-        show_meeting: document.getElementById('show-meeting').checked
-    });
-}
-
-function saveConfig() {
-    saveConfigData({
-        site_name: document.getElementById('cfg-site_name').value,
-        tagline: document.getElementById('cfg-tagline').value,
+<script>
+// Lightbox Gallery
+let currentImageIndex = 0;
+let galleryImages = [];
+let galleryData = [];
+
+galleryData = [{"path":"images\/img_69ccb8f6cd896.jpg","alt":""},{"path":"images\/img_69ccb901e42bf.jpg","alt":""},{"path":"images\/img_69ccbc5d34f0c.jpg","alt":""},{"path":"images\/img_69ccc9f260e9e.jpg","alt":""},{"path":"images\/img_69cccab6ddf89.jpg","alt":""},{"path":"images\/img_69ccc0d38df55.jpg","alt":""},{"path":"images\/img_69ccbd36d3c58.jpg","alt":""},{"path":"images\/img_69ccbc70f11fa.jpg","alt":""},{"path":"images\/img_69ccbc683a72d.jpg","alt":""},{"path":"images\/img_69cccae4eb166.jpg","alt":""},{"path":"images\/img_69cccb0f97640.jpg","alt":""},{"path":"images\/img_69cccb2b61e28.jpg","alt":""},{"path":"images\/img_69cccb39442dc.jpg","alt":""},{"path":"images\/img_69cccb3e2365f.jpg","alt":""},{"path":"images\/img_69cccb4539d57.jpg","alt":""},{"path":"images\/img_69cccb4c7fd0b.jpg","alt":""},{"path":"images\/img_69cccb5633da3.jpg","alt":""},{"path":"images\/img_69cccb68c2ef5.jpg","alt":""},{"path":"images\/img_69cccb6e710e1.jpg","alt":""},{"path":"images\/img_69cccb731e1d0.jpg","alt":""},{"path":"images\/img_69cccba5ef436.jpg","alt":""},{"path":"images\/img_69cccba271855.jpg","alt":""},{"path":"images\/img_69cccb87364f8.jpg","alt":""},{"path":"images\/img_69cccb81c2fd8.jpg","alt":""},{"path":"images\/img_69cccb7d98bc8.jpg","alt":""},{"path":"images\/img_69cccb76817af.jpg","alt":""},{"path":"images\/img_69cccbb1b6575.jpg","alt":""},{"path":"images\/img_69cd499ab57af.jpg","alt":""},{"path":"images\/img_69cd538864850.jpg","alt":""},{"path":"images\/img_69cd7d741af45.jpg","alt":""},{"path":"images\/img_69ccb8e438610.jpg","alt":""},{"path":"images\/img_69cd584e82fb3.jpg","alt":""}];
+galleryImages = galleryData.map(x => window.location.origin + '/' + x.path);
+function toggleGalleryImage(path, el) {
+    const isInGallery = el.style.borderColor === 'var(--gold)' || el.style.borderColor === 'rgb(212, 175, 55)';
+    
+    if (isInGallery) {
+        removeFromGallery(path);
+    } else {
+        addToGallery(path);
+    }
+}
+
+function saveGalleryAlt(path, alt) {
+    fetch('?page=galerie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=save_gallery_alt&path=' + encodeURIComponent(path) + '&alt=' + encodeURIComponent(alt)
+    }).then(r => r.json());
+}
+
+function addToGallery(path) {
+    fetch('?page=galerie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=add_to_gallery&path=' + encodeURIComponent(path)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            location.reload();
+        }
+    });
+}
+
+function removeFromGallery(path) {
+    if (!confirm('Retirer cette image de la galerie ?')) return;
+    fetch('?page=galerie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=remove_from_gallery&path=' + encodeURIComponent(path)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            location.reload();
+        }
+    });
+}
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    const img = document.getElementById('lightbox-img');
+    img.src = galleryImages[currentImageIndex];
+    img.alt = (galleryData[currentImageIndex] || {}).alt || '';
+    const cap = document.getElementById('lightbox-caption');
+    if (cap) cap.textContent = (galleryData[currentImageIndex] || {}).alt || '';
+    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function prevImage(e) {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+    document.getElementById('lightbox-img').alt = (galleryData[currentImageIndex] || {}).alt || '';
+    const capP = document.getElementById('lightbox-caption');
+    if (capP) capP.textContent = (galleryData[currentImageIndex] || {}).alt || '';
+    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+}
+
+function nextImage(e) {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    document.getElementById('lightbox-img').src = galleryImages[currentImageIndex];
+    document.getElementById('lightbox-img').alt = (galleryData[currentImageIndex] || {}).alt || '';
+    const capN = document.getElementById('lightbox-caption');
+    if (capN) capN.textContent = (galleryData[currentImageIndex] || {}).alt || '';
+    document.getElementById('lightbox-counter').textContent = (currentImageIndex + 1) + ' / ' + galleryImages.length;
+}
+
+document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') prevImage(e);
+    if (e.key === 'ArrowRight') nextImage(e);
+});
+
+</script>
+
+
+<script>
+let currentHeroImage = 'images/img_69ccb901e42bf.jpg';
+let currentHeight = 60;
+let currentPosition = 0;
+let currentOpacity = 0.4;
+let chatConversation = '';
+let chatMessageCount = 0;
+
+function toggleMobileMenu() { document.getElementById('navMenu').classList.toggle('open'); }
+function toggleEditor() { document.getElementById('editorPanel').classList.toggle('active'); }
+function switchTab(tab) {
+    document.querySelectorAll('.editor-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.editor-content').forEach(c => c.classList.remove('active'));
+    document.querySelector(`.editor-tab[onclick="switchTab('${tab}')"]`).classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+}
+
+function updateSiteName(val) { document.getElementById('previewTitle').textContent = val; document.querySelector('.hero h1').textContent = val; }
+function updateMeeting(val) { document.getElementById('previewMeeting').textContent = val; document.querySelector('.hero-info').innerHTML = '<span>&#128205;</span> ' + val; }
+
+function updateHero(type, val) {
+    if (type === 'height') {
+        currentHeight = val;
+        document.getElementById('heightVal').textContent = val;
+        document.getElementById('heroSection').style.minHeight = val + 'vh';
+        document.getElementById('heroPreview').style.minHeight = (val * 0.3) + 'px';
+    }
+    if (type === 'position') {
+        currentPosition = val;
+        document.getElementById('posVal').textContent = val;
+        if (currentHeroImage) {
+            document.getElementById('heroSection').style.backgroundPosition = 'center ' + val + '%';
+        }
+    }
+    if (type === 'opacity') {
+        currentOpacity = val;
+        document.getElementById('opacityVal').textContent = val;
+    }
+    updateHeroPreview();
+}
+
+function updateHeroPreview() {
+    const hero = document.getElementById('heroSection');
+    if (currentHeroImage) {
+        hero.style.backgroundImage = 'url(' + currentHeroImage + ')';
+        hero.style.backgroundSize = 'cover';
+        hero.style.backgroundPosition = 'center ' + currentPosition + '%';
+    }
+}
+
+function selectHeroImage(path) {
+    document.querySelectorAll('.image-picker-item').forEach(el => el.classList.remove('selected'));
+    event.currentTarget.classList.add('selected');
+    currentHeroImage = path;
+    updateHeroPreview();
+}
+
+function saveHeroSettings() {
+    saveConfigData({
+        hero_image: currentHeroImage,
+        hero_height: currentHeight,
+        hero_position: currentPosition,
+        hero_image_opacity: currentOpacity,
+        show_slogan: document.getElementById('show-slogan').checked,
+        show_meeting: document.getElementById('show-meeting').checked
+    });
+}
+
+function saveConfig() {
+    saveConfigData({
+        site_name: document.getElementById('cfg-site_name').value,
+        tagline: document.getElementById('cfg-tagline').value,
         footer_text: document.getElementById('cfg-footer_text').value,
         contact_phone: document.getElementById('cfg-contact_phone')?.value || '',
         secretary_email: document.getElementById('cfg-secretary_email')?.value || '',
         google_verification: document.getElementById('cfg-google_verification')?.value || '',
-        bing_verification: document.getElementById('cfg-bing_verification')?.value || '',
-        meeting: document.getElementById('cfg-meeting').value
-    });
-}
-
-function saveConfigData(data) {
-    fetch('?page=actualites', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=save_config&data=' + encodeURIComponent(JSON.stringify(data))
-    }).then(r => r.json()).then(res => { if (res.ok) alert('Sauvegarde OK!'); else alert('Erreur'); });
-}
-
-let blocks = [{"type":"news","title":"Soutien au spectacle de l'association Nouvel Envol 05","date":"28 mai \u00e0 18h30","content":"Nous sommes fiers de soutenir l'association Nouvel Envol pour leur spectacle exceptionnel mettant en sc\u00e8ne 50 personnes en situation de handicap. C'est un \u00e9v\u00e9nement humain et artistique unique que nous vous invitons \u00e0 partager avec nous.\n\nDeux repr\u00e9sentations sont programm\u00e9es pour vous permettre de d\u00e9couvrir leur talent : la premi\u00e8re se tiendra le 21 mai \u00e0 18h30 \u00e0 la salle Le Tempo de Gap, et la seconde aura lieu le** 28 mai \u00e0 18h30 au Th\u00e9\u00e2tre de Brian\u00e7on.** Veuillez noter que l'entr\u00e9e est payante.\n\n\u00c0 cette occasion, les membres du Photo Club Brian\u00e7onnais r\u00e9aliseront un reportage complet en salle et dans les coulisses afin d'immortaliser chaque instant de ce moment fort et d'offrir aux participants des souvenirs inoubliables.\n","image":"images\/_DSC2224_redim_69ce644d557ba.png","image_pos":"right","image_size":"large"},{"type":"news","title":"Prochaine r\u00e9union","date":" le 14 avril \u00e0 19h","content":"Lors de notre prochaine rencontre, nous mettrons l'accent sur une technique qui peut para\u00eetre complexe au premier abord, mais qui vous permettra de r\u00e9aliser d'excellentes photos : la photographie \u00e0 haute vitesse.\n\nSi ce terme vous est inconnu, sachez que cette technique est notamment utilis\u00e9e pour capturer des \u00e9clairs, des impacts de gouttes d'eau et bien d'autres ph\u00e9nom\u00e8nes rapides. Nous esp\u00e9rons vous voir nombreux le 31 mars pour d\u00e9mystifier cette pratique encore trop peu connue.\n\nJean-Luc animera ce cours et nous permettra de nous essayer concr\u00e8tement \u00e0 cette technique. En parall\u00e8le, nous invitons nos membres \u00e0 travailler sur le sujet de la prochaine exposition : les forts qui entourent le Brian\u00e7onnais.","image":"images\/img_69cd7d741af45.jpg","image_pos":"left","image_size":"medium"}];
-function renderBlocks() {
-    const list = document.getElementById('blockList');
-    if (!list) return;
-    list.innerHTML = blocks.map((b, i) => `
-        <div class="block-item">
-            <div class="block-item-header">
-                <span class="block-item-type">${b.type}</span>
-                <div class="block-item-actions">
-                    <button class="move-btn" onclick="moveBlock(${i}, -1)">&#9650;</button>
-                    <button class="move-btn" onclick="moveBlock(${i}, 1)">&#9660;</button>
-                    <button class="edit-btn" onclick="editBlock(${i})">Edit</button>
-                    <button class="delete-btn" onclick="deleteBlock(${i})">X</button>
-                </div>
-            </div>
-            <div style="color:var(--text-dim); font-size:12px;">${(b.title || b.content || '').replace(/<[^>]+>/g, '').substring(0, 60)}</div>
-        </div>
-    `).join('');
-}
-
-function addBlock(type) {
-    const nb = type === 'text' ? {type, content: '<h2>Titre</h2><p>Texte...</p>'} : {type, title: 'Titre', date: new Date().toLocaleDateString('fr-FR'), content: 'Contenu...'};
-    blocks.push(nb);
-    saveBlocks();
-}
-
-function deleteBlock(i) {
-    if (confirm('Supprimer ce bloc ?')) {
-        blocks.splice(i, 1);
-        saveBlocks();
-    }
-}
-
-function moveBlock(i, d) { const ni = i+d; if (ni < 0 || ni >= blocks.length) return; [blocks[i], blocks[ni]] = [blocks[ni], blocks[i]]; saveBlocks(); }
-
-function editBlock(i) {
-    const b = blocks[i];
-    const images = [{"path":"images\/_DSC2224_redim_69ce644d557ba.png","name":"_DSC2224_redim_69ce644d557ba"},{"path":"images\/img_69ccb8e438610.jpg","name":"img_69ccb8e438610"},{"path":"images\/img_69ccb8f6cd896.jpg","name":"img_69ccb8f6cd896"},{"path":"images\/img_69ccb901e42bf.jpg","name":"img_69ccb901e42bf"},{"path":"images\/img_69ccb916827c1.jpg","name":"img_69ccb916827c1"},{"path":"images\/img_69ccbc5d34f0c.jpg","name":"img_69ccbc5d34f0c"},{"path":"images\/img_69ccbc683a72d.jpg","name":"img_69ccbc683a72d"},{"path":"images\/img_69ccbc70f11fa.jpg","name":"img_69ccbc70f11fa"},{"path":"images\/img_69ccbd36d3c58.jpg","name":"img_69ccbd36d3c58"},{"path":"images\/img_69ccc0d38df55.jpg","name":"img_69ccc0d38df55"},{"path":"images\/img_69ccc9f260e9e.jpg","name":"img_69ccc9f260e9e"},{"path":"images\/img_69cccab6ddf89.jpg","name":"img_69cccab6ddf89"},{"path":"images\/img_69cccae4eb166.jpg","name":"img_69cccae4eb166"},{"path":"images\/img_69cccb0f97640.jpg","name":"img_69cccb0f97640"},{"path":"images\/img_69cccb2b61e28.jpg","name":"img_69cccb2b61e28"},{"path":"images\/img_69cccb39442dc.jpg","name":"img_69cccb39442dc"},{"path":"images\/img_69cccb3e2365f.jpg","name":"img_69cccb3e2365f"},{"path":"images\/img_69cccb4539d57.jpg","name":"img_69cccb4539d57"},{"path":"images\/img_69cccb4c7fd0b.jpg","name":"img_69cccb4c7fd0b"},{"path":"images\/img_69cccb5633da3.jpg","name":"img_69cccb5633da3"},{"path":"images\/img_69cccb605aece.jpg","name":"img_69cccb605aece"},{"path":"images\/img_69cccb68c2ef5.jpg","name":"img_69cccb68c2ef5"},{"path":"images\/img_69cccb6e710e1.jpg","name":"img_69cccb6e710e1"},{"path":"images\/img_69cccb731e1d0.jpg","name":"img_69cccb731e1d0"},{"path":"images\/img_69cccb76817af.jpg","name":"img_69cccb76817af"},{"path":"images\/img_69cccb7d98bc8.jpg","name":"img_69cccb7d98bc8"},{"path":"images\/img_69cccb81c2fd8.jpg","name":"img_69cccb81c2fd8"},{"path":"images\/img_69cccb87364f8.jpg","name":"img_69cccb87364f8"},{"path":"images\/img_69cccba271855.jpg","name":"img_69cccba271855"},{"path":"images\/img_69cccba5ef436.jpg","name":"img_69cccba5ef436"},{"path":"images\/img_69cccbad03d54.jpg","name":"img_69cccbad03d54"},{"path":"images\/img_69cccbb1b6575.jpg","name":"img_69cccbb1b6575"},{"path":"images\/img_69cccbfc82ceb.jpg","name":"img_69cccbfc82ceb"},{"path":"images\/img_69ccccc543064.jpg","name":"img_69ccccc543064"},{"path":"images\/img_69cccd5238a62.jpg","name":"img_69cccd5238a62"},{"path":"images\/img_69cd499ab57af.jpg","name":"img_69cd499ab57af"},{"path":"images\/img_69cd501217125.jpg","name":"img_69cd501217125"},{"path":"images\/img_69cd538864850.jpg","name":"img_69cd538864850"},{"path":"images\/img_69cd547422474.jpg","name":"img_69cd547422474"},{"path":"images\/img_69cd54ee11d9e.jpg","name":"img_69cd54ee11d9e"},{"path":"images\/img_69cd54f4a6094.jpg","name":"img_69cd54f4a6094"},{"path":"images\/img_69cd55088e060.jpg","name":"img_69cd55088e060"},{"path":"images\/img_69cd56a22683e.jpg","name":"img_69cd56a22683e"},{"path":"images\/img_69cd56c498d27.jpg","name":"img_69cd56c498d27"},{"path":"images\/img_69cd56dc7ac4a.jpg","name":"img_69cd56dc7ac4a"},{"path":"images\/img_69cd56e71d824.jpg","name":"img_69cd56e71d824"},{"path":"images\/img_69cd56eca0183.jpg","name":"img_69cd56eca0183"},{"path":"images\/img_69cd584e82fb3.jpg","name":"img_69cd584e82fb3"},{"path":"images\/img_69cd6907ab9d6.jpg","name":"img_69cd6907ab9d6"},{"path":"images\/img_69cd6ac5d7c85.jpg","name":"img_69cd6ac5d7c85"},{"path":"images\/img_69cd7adb465a3.jpg","name":"img_69cd7adb465a3"},{"path":"images\/img_69cd7c09b62a9.jpg","name":"img_69cd7c09b62a9"},{"path":"images\/img_69cd7d741af45.jpg","name":"img_69cd7d741af45"}];
-    let html = '';
-    
-    if (b.type === 'text' || b.type === 'news') {
-        let thumbnailsHtml = '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;max-height:200px;overflow-y:auto;padding:4px;">';
-        if (images.length === 0) {
-            thumbnailsHtml += '<p style="grid-column:1/-1;color:var(--text-dim);font-size:12px;">Aucune image. Uploadez d\'abord.</p>';
-        } else {
-            images.forEach(img => {
-                const isSelected = b.image === img.path;
-                thumbnailsHtml += '<div onclick="setBlockImage(' + i + ',\'' + img.path + '\')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:3px solid ' + (isSelected ? 'var(--gold)' : 'transparent') + ';transition:all 0.2s;" onmouseover="this.style.borderColor=\'var(--gold)\'" onmouseout="this.style.borderColor=\'' + (isSelected ? 'var(--gold)' : 'transparent') + '\'"><img src="' + img.path + '" style="width:100%;height:100%;object-fit:cover;"></div>';
-            });
-        }
-        thumbnailsHtml += '</div>';
-        
-        const imgSizes = ['small', 'medium', 'large'];
-        const imgSizeOptions = imgSizes.map(s => `<option value="${s}" ${(b.image_size || 'medium') === s ? 'selected' : ''}>${s.charAt(0).toUpperCase() + s.slice(1)} (${s === 'small' ? '200px' : s === 'medium' ? '400px' : '600px'})</option>`).join('');
-        
-        html = `
-            <div class="form-group">
-                <label>Choisir une image existante</label>
-                ${thumbnailsHtml}
-                <input type="hidden" id="edit-image" value="${b.image || ''}">
-                <button type="button" onclick="clearBlockImage()" style="margin-top:8px;padding:6px 12px;background:transparent;border:1px solid var(--text-dim);border-radius:4px;color:var(--text-dim);cursor:pointer;font-size:12px;">Supprimer l'image</button>
-            </div>
-            <div class="form-group">
-                <label>Position de l'image</label>
-                <select id="edit-image_pos" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.2);border-radius:8px;color:var(--text);margin-bottom:12px;">
-                    <option value="top" ${b.image_pos === 'top' ? 'selected' : ''}>En haut</option>
-                    <option value="bottom" ${b.image_pos === 'bottom' ? 'selected' : ''}>En bas</option>
-                    <option value="left" ${b.image_pos === 'left' ? 'selected' : ''}>A gauche</option>
-                    <option value="right" ${b.image_pos === 'right' ? 'selected' : ''}>A droite</option>
-                </select>
-                <label>Taille de l'image</label>
-                <select id="edit-image_size" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.2);border-radius:8px;color:var(--text);">
-                    ${imgSizeOptions}
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Ou uploader une nouvelle image</label>
-                <input type="file" id="edit-upload-image" accept="image/*" style="width:100%;padding:10px;background:var(--dark);border:1px dashed rgba(212,175,55,0.3);border-radius:8px;color:var(--text);">
-                <button class="btn btn-sm btn-gold" onclick="uploadImageForBlock(' + i + ')" style="margin-top:8px;padding:8px 16px;">Uploader et utiliser</button>
-            </div>
-            <div class="form-group" style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(212,175,55,0.1);">
-                <label>Contenu HTML</label>
-                <div style="display:flex;gap:4px;margin-bottom:8px;">
-                    <button type="button" onclick="formatText('bold')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;font-weight:bold;">B</button>
-                    <button type="button" onclick="formatText('italic')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;font-style:italic;">I</button>
-                    <button type="button" onclick="formatText('h2')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;">H2</button>
-                    <button type="button" onclick="formatText('h3')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;">H3</button>
-                    <button type="button" onclick="formatText('p')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;">P</button>
-                </div>
-                <textarea id="edit-content" style="min-height:150px;">${b.content || ''}</textarea>
-            </div>
-        `;
-    }
-    
-    const m = document.createElement('div');
-    m.id = 'editModal';
-    m.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:2000;padding:20px;overflow-y:auto;';
-    m.innerHTML = '<div style="background:var(--dark-light);padding:32px;border-radius:16px;width:100%;max-width:700px;border:1px solid rgba(212,175,55,0.2);max-height:90vh;overflow-y:auto;"><h3 style="color:var(--gold);margin-bottom:20px;">Modifier le bloc</h3>' + html + '<div style="display:flex;gap:12px;margin-top:20px;"><button class="btn btn-gold" onclick="saveEdit(' + i + ')">OK</button><button class="btn btn-outline" onclick="closeEditModal()">Annuler</button></div></div>';
-    document.body.appendChild(m);
-    
-    // Close on Escape
-    document.addEventListener('keydown', function escHandler(e) {
-        if (e.key === 'Escape') {
-            closeEditModal();
-            document.removeEventListener('keydown', escHandler);
-        }
-    });
-}
-
-function setBlockImage(blockIndex, path) {
-    document.getElementById('edit-image').value = path;
-}
-
-function clearBlockImage() {
-    document.getElementById('edit-image').value = '';
-}
-
-function saveEdit(i) {
-    const b = blocks[i];
-    b.content = document.getElementById('edit-content')?.value || b.content; 
-    b.image = document.getElementById('edit-image')?.value || '';
-    b.image_pos = document.getElementById('edit-image_pos')?.value || 'top';
-    b.image_size = document.getElementById('edit-image_size')?.value || 'medium';
-    
-    if (b.type === 'news') { 
-        b.title = document.getElementById('edit-title')?.value || b.title; 
-        b.date = document.getElementById('edit-date')?.value || b.date; 
-    }
-    saveBlocks();
-}
-
-function saveBlocks() {
-    fetch('?page=actualites', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=save_blocks&page=actualites&data=' + encodeURIComponent(JSON.stringify(blocks))
-    }).then(r => r.json()).then(res => { if (res.ok) { renderBlocks(); location.reload(); } });
-}
-
-function useImage(p) { alert('Image: ' + p); }
-
-let galleryChanges = [];
-
-function toggleGalleryImageClick(el, path) {
-    const isInGallery = el.classList.contains('in-gallery');
-    if (isInGallery) {
-        el.classList.remove('in-gallery');
-        el.style.borderColor = 'transparent';
-        el.querySelector('.img-name').textContent = '+';
-    } else {
-        el.classList.add('in-gallery');
-        el.style.borderColor = 'var(--gold)';
-        el.querySelector('.img-name').textContent = '✓';
-    }
-}
-
-function saveGallerySelection() {
-    const items = document.querySelectorAll('#imagePicker .image-picker-item');
-    const finalPaths = [];
-    
-    items.forEach(item => {
-        if (item.classList.contains('in-gallery')) {
-            finalPaths.push(item.dataset.path);
-        }
-    });
-    
-    fetch('?page=galerie', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=save_gallery_batch&paths=' + encodeURIComponent(JSON.stringify(finalPaths))
-    })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) {
-            alert('Galerie mise a jour!');
-            location.reload();
-        }
-    });
-}
-
-document.getElementById('uploadForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const fd = new FormData(this);
-    fd.append('action', 'upload_image');
-    document.getElementById('uploadResult').innerHTML = '<span style="color:var(--gold);">Upload...</span>';
-    fetch('?page=actualites', { method: 'POST', body: fd })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) { document.getElementById('uploadResult').innerHTML = '<span style="color:#1EA97C;">OK!</span>'; setTimeout(() => location.reload(), 1000); }
-        else { document.getElementById('uploadResult').innerHTML = '<span style="color:#FF5757;">Erreur: ' + res.err + '</span>'; }
-    });
-});
-
-document.getElementById('uploadFormGallery')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const fd = new FormData(this);
-    fd.append('action', 'upload_image');
-    fd.append('add_to_gallery', document.getElementById('add-gallery-check').checked ? 'true' : 'false');
-    document.getElementById('uploadGalleryResult').innerHTML = '<span style="color:var(--gold);">Upload...</span>';
-    fetch('?page=actualites', { method: 'POST', body: fd })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) { document.getElementById('uploadGalleryResult').innerHTML = '<span style="color:#1EA97C;">OK! Ajoute a la galerie!</span>'; setTimeout(() => location.reload(), 1000); }
-        else { document.getElementById('uploadGalleryResult').innerHTML = '<span style="color:#FF5757;">Erreur: ' + res.err + '</span>'; }
-    });
-});
-
-function correctText() {
-    const text = document.getElementById('aiInput').value.trim();
-    if (text.length < 10) { alert('Texte trop court'); return; }
-    document.getElementById('aiLoading').classList.add('show');
-    document.getElementById('aiResult').style.display = 'none';
-    
-    fetch('?page=actualites', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=ai_correct&text=' + encodeURIComponent(text)
-    })
-    .then(r => r.json())
-    .then(res => {
-        document.getElementById('aiLoading').classList.remove('show');
-        if (res.ok) {
-            document.getElementById('aiCorrectedText').textContent = res.corrected;
-            document.getElementById('aiResult').style.display = 'block';
-        } else {
-            alert('Erreur IA: ' + res.err);
-        }
-    });
-}
-
-function copyCorrected() {
-    const t = document.getElementById('aiCorrectedText').textContent;
-    if (t) { navigator.clipboard.writeText(t); alert('Copie!'); }
-}
-
-// AI Chat
-function sendChat() {
-    const input = document.getElementById('chatInput');
-    const msg = input.value.trim();
-    if (!msg) return;
-    
-    chatConversation += (chatConversation ? ' | ' : '') + 'User: ' + msg;
-    chatMessageCount++;
-    
-    const messagesDiv = document.getElementById('chatMessages');
-    messagesDiv.innerHTML += '<div class="chat-message user">' + msg + '</div>';
-    input.value = '';
-    
-    document.getElementById('chatLoading').style.display = 'flex';
-    document.getElementById('generateBlocksSection').style.display = 'none';
-    
-    fetch('?page=actualites', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=ai_chat&conversation=' + encodeURIComponent(chatConversation)
-    })
-    .then(r => r.json())
-    .then(res => {
-        document.getElementById('chatLoading').style.display = 'none';
-        if (res.ok) {
-            chatConversation += ' | AI: ' + res.response;
-            messagesDiv.innerHTML += '<div class="chat-message ai">' + res.response + '</div>';
-            messagesDiv.scrollTop = messagesDiv.scrollHeight;
-            
-            if (chatMessageCount >= 2) {
-                document.getElementById('generateBlocksSection').style.display = 'block';
-            }
-        } else {
-            alert('Erreur: ' + res.err);
-        }
-    });
-}
-
-function useSuggestion(text) {
-    document.getElementById('chatInput').value = text;
-    sendChat();
-}
-
-function generateBlocks() {
-    if (!confirm('Generer des blocs de contenu bas�s sur la conversation ?')) return;
-    
-    document.getElementById('chatLoading').style.display = 'flex';
-    document.getElementById('generatedBlocksPreview').style.display = 'none';
-    
-    fetch('?page=actualites', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=ai_generate_blocks&conversation=' + encodeURIComponent(chatConversation)
-    })
-    .then(r => r.text())
-    .then(text => {
-        console.log('Raw response:', text.substring(0, 500));
-        const res = JSON.parse(text);
-        document.getElementById('chatLoading').style.display = 'none';
-        if (res.ok && res.blocks && res.blocks.length > 0) {
-            let preview = '<h4 style="color:#1EA97C;margin-bottom:16px;">Blocs generes (' + res.blocks.length + '):</h4>';
-            res.blocks.forEach((b, i) => {
-                const title = b.content.match(/<h2>(.*?)<\/h2>/)?.[1] || 'Bloc ' + (i+1);
-                const textContent = b.content.replace(/<[^>]+>/g, '').substring(0, 80) + '...';
-                preview += '<div class="generated-block-item"><h4>' + title + '</h4><p>' + textContent + '</p></div>';
-            });
-            preview += '<button class="btn btn-gold" onclick="addGeneratedBlocks()" style="background:#1EA97C;width:100%;margin-top:16px;">Ajouter tous les blocs</button>';
-            document.getElementById('generatedBlocksPreview').innerHTML = preview;
-            document.getElementById('generatedBlocksPreview').style.display = 'block';
-            window.generatedBlocks = res.blocks;
-        } else {
-            alert('Erreur: ' + (res.err || 'Aucun bloc genere'));
-        }
-    })
-    .catch(err => {
-        document.getElementById('chatLoading').style.display = 'none';
-        alert('Erreur reseau: ' + err.message);
-    });
-}
-
-function addGeneratedBlocks() {
-    if (window.generatedBlocks && window.generatedBlocks.length > 0) {
-        window.generatedBlocks.forEach(b => {
-            blocks.push({type: 'text', content: b.content, image: '', image_pos: 'top', image_size: 'medium'});
-        });
-        saveBlocks();
-    }
-}
-
-// Edit block directly
-function editBlockDirect(index) {
-    editBlock(index);
-    document.getElementById('editorPanel').classList.add('active');
-    document.getElementById('editorPanel').scrollTop = 0;
-}
-
-function closeEditModal() {
-    const modal = document.getElementById('editModal');
-    if (modal) modal.remove();
-}
-
-function uploadImageForBlock(blockIndex) {
-    const fileInput = document.getElementById('edit-upload-image');
-    const file = fileInput.files[0];
-    if (!file) {
-        alert('Selectionnez d\'abord une image');
-        return;
-    }
-    
-    const fd = new FormData();
-    fd.append('action', 'upload_image');
-    fd.append('image', file);
-    
-    fetch('?page=actualites', { method: 'POST', body: fd })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) {
-            document.getElementById('edit-image').value = res.path;
-            alert('Image uploadée ! Cliquez sur une miniature pour la sélectionner.');
-        } else {
-            alert('Erreur: ' + res.err);
-        }
-    });
-}
-
-function formatText(type) {
-    const ta = document.getElementById('edit-content');
-    const start = ta.selectionStart;
-    const end = ta.selectionEnd;
-    const text = ta.value;
-    const selected = text.substring(start, end);
-    
-    let wrap = '';
-    let surround = '';
-    
-    switch(type) {
-        case 'bold':
-            wrap = '**';
-            break;
-        case 'italic':
-            wrap = '_';
-            break;
-        case 'h2':
-            surround = '\n<h2>';
-            wrap = '</h2>\n';
-            break;
-        case 'h3':
-            surround = '\n<h3>';
-            wrap = '</h3>\n';
-            break;
-        case 'p':
-            surround = '\n<p>';
-            wrap = '</p>\n';
-            break;
-    }
-    
-    if (surround) {
-        ta.value = text.substring(0, start) + surround + selected + wrap + text.substring(end);
-    } else if (selected) {
-        ta.value = text.substring(0, start) + wrap + selected + wrap + text.substring(end);
-    } else {
-        ta.value = text.substring(0, start) + wrap + 'texte' + wrap + text.substring(end);
-    }
-    
-    ta.focus();
-}
-
-function sendContact(e) {
-    e.preventDefault();
-    const name = document.getElementById('contact-name').value;
-    const email = document.getElementById('contact-email').value;
-    const message = document.getElementById('contact-message').value;
-    const result = document.getElementById('contactResult');
-    
-    result.style.display = 'block';
-    result.style.background = 'rgba(212, 175, 55, 0.1)';
-    result.style.color = 'var(--gold)';
-    result.textContent = 'Envoi en cours...';
-    
-    fetch('?page=contact', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=send_contact&name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&message=' + encodeURIComponent(message)
-    })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) {
-            result.style.background = 'rgba(30, 169, 124, 0.2)';
-            result.style.color = '#1EA97C';
-            result.textContent = 'Message envoyé ! Nous vous répondrons bientôt.';
-            document.getElementById('contactForm').reset();
-        } else {
-            result.style.background = 'rgba(255, 87, 87, 0.2)';
-            result.style.color = '#FF5757';
-            result.textContent = 'Erreur: ' + res.err;
-        }
-    })
-    .catch(err => {
-        result.style.background = 'rgba(255, 87, 87, 0.2)';
-        result.style.color = '#FF5757';
-        result.textContent = 'Erreur de connexion';
-    });
-}
-
-// Drag and drop
-let draggedIndex = null;
-
-document.querySelectorAll('.block-wrapper[draggable=true]').forEach(wrapper => {
-    wrapper.addEventListener('dragstart', function(e) {
-        draggedIndex = parseInt(this.dataset.index);
-        this.classList.add('dragging');
-        e.dataTransfer.effectAllowed = 'move';
-    });
-    
-    wrapper.addEventListener('dragend', function() {
-        this.classList.remove('dragging');
-        document.querySelectorAll('.block-wrapper').forEach(w => w.classList.remove('drag-over'));
-        draggedIndex = null;
-    });
-    
-    wrapper.addEventListener('dragover', function(e) {
-        e.preventDefault();
-        this.classList.add('drag-over');
-    });
-    
-    wrapper.addEventListener('dragleave', function() {
-        this.classList.remove('drag-over');
-    });
-    
-    wrapper.addEventListener('drop', function(e) {
-        e.preventDefault();
-        const dropIndex = parseInt(this.dataset.index);
-        if (draggedIndex !== null && draggedIndex !== dropIndex) {
-            const item = blocks[draggedIndex];
-            blocks.splice(draggedIndex, 1);
-            blocks.splice(dropIndex, 0, item);
-            saveBlocks();
-        }
-        this.classList.remove('drag-over');
-    });
-});
-
-renderBlocks();
-
-// Image Resizer Tool
-const MAX_PX    = 1920;
-const MAX_BYTES = 2.7 * 1024 * 1024;
-
-let resizeOriginalWidth  = 0;
-let resizeOriginalHeight = 0;
-let resizeOriginalFile   = null;
-
-function _autoScale(w, h) {
-    const auto = document.getElementById("autoLimit");
-    if (!auto || !auto.checked) return [w, h];
-    const longest = Math.max(w, h);
-    if (longest > MAX_PX) { const r = MAX_PX / longest; return [Math.round(w*r), Math.round(h*r)]; }
-    return [w, h];
-}
-function _updateInfo(origW, origH, outW, outH, sizeStr) {
-    const el = id => document.getElementById(id);
-    if (el("origDimensions")) el("origDimensions").textContent = origW + " x " + origH + " px";
-    if (el("outDimensions"))  el("outDimensions").textContent  = outW  + " x " + outH  + " px";
-    if (el("outFileSize") && sizeStr) el("outFileSize").textContent = sizeStr;
-}
-function _onImageLoaded(img) {
-    resizeOriginalWidth  = img.naturalWidth;
-    resizeOriginalHeight = img.naturalHeight;
-    const [ow, oh] = _autoScale(resizeOriginalWidth, resizeOriginalHeight);
-    const el = id => document.getElementById(id);
-    if (el("resizeWidth"))  el("resizeWidth").value  = ow;
-    if (el("resizeHeight")) el("resizeHeight").value = oh;
-    _updateInfo(resizeOriginalWidth, resizeOriginalHeight, ow, oh, "calcul...");
-    document.getElementById("resizePreview").style.display = "block";
-}
-document.getElementById("resizeInput")?.addEventListener("change", function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    resizeOriginalFile = file;
-    const reader = new FileReader();
-    reader.onload = evt => {
-        const img = document.getElementById("resizePreviewImg");
-        img.src = evt.target.result;
-        img.onload = () => _onImageLoaded(img);
-    };
-    reader.readAsDataURL(file);
-});
-document.getElementById("resizeWidth")?.addEventListener("input", function() {
-    const w = parseInt(this.value) || 0;
-    if (w > 0 && resizeOriginalWidth > 0) {
-        const h = Math.round(w * resizeOriginalHeight / resizeOriginalWidth);
-        document.getElementById("resizeHeight").value = h;
-        _updateInfo(resizeOriginalWidth, resizeOriginalHeight, w, h, null);
-    }
-});
-document.getElementById("resizeHeight")?.addEventListener("input", function() {
-    const h = parseInt(this.value) || 0;
-    if (h > 0 && resizeOriginalHeight > 0) {
-        const w = Math.round(h * resizeOriginalWidth / resizeOriginalHeight);
-        document.getElementById("resizeWidth").value = w;
-        _updateInfo(resizeOriginalWidth, resizeOriginalHeight, w, h, null);
-    }
-});
-function applyResizePercent() {
-    const pct = parseInt(document.getElementById("resizePercent").value) || 100;
-    if (resizeOriginalWidth > 0) {
-        let [w, h] = [Math.round(resizeOriginalWidth * pct / 100), Math.round(resizeOriginalHeight * pct / 100)];
-        [w, h] = _autoScale(w, h);
-        document.getElementById("resizeWidth").value  = w;
-        document.getElementById("resizeHeight").value = h;
-        _updateInfo(resizeOriginalWidth, resizeOriginalHeight, w, h, null);
-    }
-}
-function _blobToOptimal(canvas, callback) {
-    const auto = document.getElementById("autoLimit");
-    if (!auto || !auto.checked) { canvas.toBlob(b => callback(b), "image/jpeg", 0.88); return; }
-    canvas.toBlob(b => {
-        if (b.size <= MAX_BYTES) { callback(b); return; }
-        let lo = 0.30, hi = 0.87, best = b, iter = 0;
-        const step = () => {
-            if (iter++ > 7) { callback(best); return; }
-            const mid = (lo + hi) / 2;
-            canvas.toBlob(nb => { best = nb; if (nb.size <= MAX_BYTES) lo = mid; else hi = mid; step(); }, "image/jpeg", mid);
-        };
-        step();
-    }, "image/jpeg", 0.88);
-}
-function downloadResizedImage() {
-    const msg = document.getElementById("resizeMsg");
-    const showMsg = (text, color, bg) => { if (!msg) return; msg.style.display="block"; msg.style.color=color; msg.style.background=bg; msg.textContent=text; };
-    if (!resizeOriginalFile) { showMsg("Selectionnez une image.", "#f77", "rgba(255,87,87,0.15)"); return; }
-    let tw = parseInt(document.getElementById("resizeWidth").value)  || resizeOriginalWidth;
-    let th = parseInt(document.getElementById("resizeHeight").value) || resizeOriginalHeight;
-    [tw, th] = _autoScale(tw, th);
-    document.getElementById("resizeWidth").value = tw;
-    document.getElementById("resizeHeight").value = th;
-    showMsg("Optimisation en cours...", "var(--gold)", "rgba(212,175,55,0.1)");
-    const reader = new FileReader();
-    reader.onload = evt => {
-        const img = new Image();
-        img.onload = () => {
-            const canvas = document.createElement("canvas");
-            canvas.width = tw; canvas.height = th;
-            canvas.getContext("2d").drawImage(img, 0, 0, tw, th);
-            _blobToOptimal(canvas, blob => {
-                const sizeMo = (blob.size / 1024 / 1024).toFixed(2);
-                _updateInfo(resizeOriginalWidth, resizeOriginalHeight, tw, th, sizeMo + " Mo");
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement("a");
-                a.href = url;
-                a.download = resizeOriginalFile.name.replace(/\.[^/.]+$/, "") + "_" + tw + "px.jpg";
-                a.click(); URL.revokeObjectURL(url);
-                showMsg("Telecharge : " + tw + " x " + th + " px . " + sizeMo + " Mo", "#4caf90", "rgba(30,169,124,0.15)");
-            });
-        };
-        img.src = evt.target.result;
-    };
-    reader.readAsDataURL(resizeOriginalFile);
-}
-function clearResize() {
-    const inp = document.getElementById("resizeInput");
-    if (inp) inp.value = "";
-    const prev = document.getElementById("resizePreview");
-    if (prev) prev.style.display = "none";
-    const msg = document.getElementById("resizeMsg");
-    if (msg) msg.style.display = "none";
-    resizeOriginalFile = null;
-    resizeOriginalWidth = resizeOriginalHeight = 0;
-}
-
-function deleteGalleryImage(path) {
-    if (!confirm('Supprimer cette image de la galerie ?')) return;
-    fetch('?page=galerie', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: 'action=remove_from_gallery&path=' + encodeURIComponent(path)
-    })
-    .then(r => r.json())
-    .then(res => {
-        if (res.ok) {
-            location.reload();
-        } else {
-            alert('Erreur: ' + res.err);
-        }
-    });
-}
-</script>
-
+        bing_verification: document.getElementById('cfg-bing_verification')?.value || '',
+        meeting: document.getElementById('cfg-meeting').value
+    });
+}
 
-</body>
-</html>
+function showToast(msg, ok) {
+    let t = document.getElementById('editorToast');
+    if (!t) { t = document.createElement('div'); t.id = 'editorToast'; t.style.cssText = 'position:fixed;bottom:80px;right:20px;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:9999;pointer-events:none;transition:opacity .3s;'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.style.background = ok ? 'rgba(76,175,80,0.95)' : 'rgba(255,87,87,0.95)';
+    t.style.color = '#fff';
+    t.style.opacity = '1';
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => { t.style.opacity = '0'; }, 2500);
+}
+function saveConfigData(data) {
+    fetch('?page=actualites', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=save_config&data=' + encodeURIComponent(JSON.stringify(data))
+    }).then(r => r.json()).then(res => { showToast(res.ok ? 'Sauvegardé ✓' : 'Erreur', res.ok); });
+}
+
+let blocks = [{"type":"news","title":"Soutien au spectacle de l'association Nouvel Envol 05","date":"28 mai \u00e0 18h30","content":"Nous sommes fiers de soutenir l'association Nouvel Envol pour leur spectacle exceptionnel mettant en sc\u00e8ne 50 personnes en situation de handicap. C'est un \u00e9v\u00e9nement humain et artistique unique que nous vous invitons \u00e0 partager avec nous.\n\nDeux repr\u00e9sentations sont programm\u00e9es pour vous permettre de d\u00e9couvrir leur talent : la premi\u00e8re se tiendra le 21 mai \u00e0 18h30 \u00e0 la salle Le Tempo de Gap, et la seconde aura lieu le** 28 mai \u00e0 18h30 au Th\u00e9\u00e2tre de Brian\u00e7on.** Veuillez noter que l'entr\u00e9e est payante.\n\n\u00c0 cette occasion, les membres du Photo Club Brian\u00e7onnais r\u00e9aliseront un reportage complet en salle et dans les coulisses afin d'immortaliser chaque instant de ce moment fort et d'offrir aux participants des souvenirs inoubliables.\n","image":"images\/_DSC2224_redim_69ce644d557ba.png","image_pos":"right","image_size":"large"},{"type":"news","title":"Prochaine r\u00e9union","date":" le 14 avril \u00e0 19h","content":"Lors de notre prochaine rencontre, nous mettrons l'accent sur une technique qui peut para\u00eetre complexe au premier abord, mais qui vous permettra de r\u00e9aliser d'excellentes photos : la photographie \u00e0 haute vitesse.\n\nSi ce terme vous est inconnu, sachez que cette technique est notamment utilis\u00e9e pour capturer des \u00e9clairs, des impacts de gouttes d'eau et bien d'autres ph\u00e9nom\u00e8nes rapides. Nous esp\u00e9rons vous voir nombreux le 31 mars pour d\u00e9mystifier cette pratique encore trop peu connue.\n\nJean-Luc animera ce cours et nous permettra de nous essayer concr\u00e8tement \u00e0 cette technique. En parall\u00e8le, nous invitons nos membres \u00e0 travailler sur le sujet de la prochaine exposition : les forts qui entourent le Brian\u00e7onnais.","image":"images\/img_69cd7d741af45.jpg","image_pos":"left","image_size":"medium"}];
+function renderBlocks() {
+    const list = document.getElementById('blockList');
+    if (!list) return;
+    list.innerHTML = blocks.map((b, i) => `
+        <div class="block-item">
+            <div class="block-item-header">
+                <span class="block-item-type">${b.type}</span>
+                <div class="block-item-actions">
+                    <button class="move-btn" onclick="moveBlock(${i}, -1)">&#9650;</button>
+                    <button class="move-btn" onclick="moveBlock(${i}, 1)">&#9660;</button>
+                    <button class="edit-btn" onclick="editBlock(${i})">Edit</button>
+                    <button class="delete-btn" onclick="deleteBlock(${i})">X</button>
+                </div>
+            </div>
+            <div style="color:var(--text-dim); font-size:12px;">${(b.title || b.content || '').replace(/<[^>]+>/g, '').substring(0, 60)}</div>
+        </div>
+    `).join('');
+}
+
+function addBlock(type) {
+    const nb = type === 'text' ? {type, content: '<h2>Titre</h2><p>Texte...</p>'} : {type, title: 'Titre', date: new Date().toLocaleDateString('fr-FR'), content: 'Contenu...'};
+    blocks.push(nb);
+    saveBlocks();
+}
+
+function deleteBlock(i) {
+    if (confirm('Supprimer ce bloc ?')) {
+        blocks.splice(i, 1);
+        saveBlocks();
+    }
+}
+
+function moveBlock(i, d) { const ni = i+d; if (ni < 0 || ni >= blocks.length) return; [blocks[i], blocks[ni]] = [blocks[ni], blocks[i]]; saveBlocks(); }
+
+function editBlock(i) {
+    const b = blocks[i];
+    const images = [{"path":"images\/_DSC2224_redim_69ce644d557ba.png","name":"_DSC2224_redim_69ce644d557ba"},{"path":"images\/img_69ccb8e438610.jpg","name":"img_69ccb8e438610"},{"path":"images\/img_69ccb8f6cd896.jpg","name":"img_69ccb8f6cd896"},{"path":"images\/img_69ccb901e42bf.jpg","name":"img_69ccb901e42bf"},{"path":"images\/img_69ccb916827c1.jpg","name":"img_69ccb916827c1"},{"path":"images\/img_69ccbc5d34f0c.jpg","name":"img_69ccbc5d34f0c"},{"path":"images\/img_69ccbc683a72d.jpg","name":"img_69ccbc683a72d"},{"path":"images\/img_69ccbc70f11fa.jpg","name":"img_69ccbc70f11fa"},{"path":"images\/img_69ccbd36d3c58.jpg","name":"img_69ccbd36d3c58"},{"path":"images\/img_69ccc0d38df55.jpg","name":"img_69ccc0d38df55"},{"path":"images\/img_69ccc9f260e9e.jpg","name":"img_69ccc9f260e9e"},{"path":"images\/img_69cccab6ddf89.jpg","name":"img_69cccab6ddf89"},{"path":"images\/img_69cccae4eb166.jpg","name":"img_69cccae4eb166"},{"path":"images\/img_69cccb0f97640.jpg","name":"img_69cccb0f97640"},{"path":"images\/img_69cccb2b61e28.jpg","name":"img_69cccb2b61e28"},{"path":"images\/img_69cccb39442dc.jpg","name":"img_69cccb39442dc"},{"path":"images\/img_69cccb3e2365f.jpg","name":"img_69cccb3e2365f"},{"path":"images\/img_69cccb4539d57.jpg","name":"img_69cccb4539d57"},{"path":"images\/img_69cccb4c7fd0b.jpg","name":"img_69cccb4c7fd0b"},{"path":"images\/img_69cccb5633da3.jpg","name":"img_69cccb5633da3"},{"path":"images\/img_69cccb605aece.jpg","name":"img_69cccb605aece"},{"path":"images\/img_69cccb68c2ef5.jpg","name":"img_69cccb68c2ef5"},{"path":"images\/img_69cccb6e710e1.jpg","name":"img_69cccb6e710e1"},{"path":"images\/img_69cccb731e1d0.jpg","name":"img_69cccb731e1d0"},{"path":"images\/img_69cccb76817af.jpg","name":"img_69cccb76817af"},{"path":"images\/img_69cccb7d98bc8.jpg","name":"img_69cccb7d98bc8"},{"path":"images\/img_69cccb81c2fd8.jpg","name":"img_69cccb81c2fd8"},{"path":"images\/img_69cccb87364f8.jpg","name":"img_69cccb87364f8"},{"path":"images\/img_69cccba271855.jpg","name":"img_69cccba271855"},{"path":"images\/img_69cccba5ef436.jpg","name":"img_69cccba5ef436"},{"path":"images\/img_69cccbad03d54.jpg","name":"img_69cccbad03d54"},{"path":"images\/img_69cccbb1b6575.jpg","name":"img_69cccbb1b6575"},{"path":"images\/img_69cccbfc82ceb.jpg","name":"img_69cccbfc82ceb"},{"path":"images\/img_69ccccc543064.jpg","name":"img_69ccccc543064"},{"path":"images\/img_69cccd5238a62.jpg","name":"img_69cccd5238a62"},{"path":"images\/img_69cd499ab57af.jpg","name":"img_69cd499ab57af"},{"path":"images\/img_69cd501217125.jpg","name":"img_69cd501217125"},{"path":"images\/img_69cd538864850.jpg","name":"img_69cd538864850"},{"path":"images\/img_69cd547422474.jpg","name":"img_69cd547422474"},{"path":"images\/img_69cd54ee11d9e.jpg","name":"img_69cd54ee11d9e"},{"path":"images\/img_69cd54f4a6094.jpg","name":"img_69cd54f4a6094"},{"path":"images\/img_69cd55088e060.jpg","name":"img_69cd55088e060"},{"path":"images\/img_69cd56a22683e.jpg","name":"img_69cd56a22683e"},{"path":"images\/img_69cd56c498d27.jpg","name":"img_69cd56c498d27"},{"path":"images\/img_69cd56dc7ac4a.jpg","name":"img_69cd56dc7ac4a"},{"path":"images\/img_69cd56e71d824.jpg","name":"img_69cd56e71d824"},{"path":"images\/img_69cd56eca0183.jpg","name":"img_69cd56eca0183"},{"path":"images\/img_69cd584e82fb3.jpg","name":"img_69cd584e82fb3"},{"path":"images\/img_69cd6907ab9d6.jpg","name":"img_69cd6907ab9d6"},{"path":"images\/img_69cd6ac5d7c85.jpg","name":"img_69cd6ac5d7c85"},{"path":"images\/img_69cd7adb465a3.jpg","name":"img_69cd7adb465a3"},{"path":"images\/img_69cd7c09b62a9.jpg","name":"img_69cd7c09b62a9"},{"path":"images\/img_69cd7d741af45.jpg","name":"img_69cd7d741af45"}];
+    let html = '';
+    
+    if (b.type === 'text' || b.type === 'news') {
+        let thumbnailsHtml = '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px;max-height:200px;overflow-y:auto;padding:4px;">';
+        if (images.length === 0) {
+            thumbnailsHtml += '<p style="grid-column:1/-1;color:var(--text-dim);font-size:12px;">Aucune image. Uploadez d\'abord.</p>';
+        } else {
+            images.forEach(img => {
+                const isSelected = b.image === img.path;
+                thumbnailsHtml += '<div onclick="setBlockImage(' + i + ',\'' + img.path + '\')" style="aspect-ratio:1;border-radius:8px;overflow:hidden;cursor:pointer;border:3px solid ' + (isSelected ? 'var(--gold)' : 'transparent') + ';transition:all 0.2s;" onmouseover="this.style.borderColor=\'var(--gold)\'" onmouseout="this.style.borderColor=\'' + (isSelected ? 'var(--gold)' : 'transparent') + '\'"><img src="' + img.path + '" style="width:100%;height:100%;object-fit:cover;"></div>';
+            });
+        }
+        thumbnailsHtml += '</div>';
+        
+        const imgSizes = ['small', 'medium', 'large'];
+        const imgSizeOptions = imgSizes.map(s => `<option value="${s}" ${(b.image_size || 'medium') === s ? 'selected' : ''}>${s.charAt(0).toUpperCase() + s.slice(1)} (${s === 'small' ? '200px' : s === 'medium' ? '400px' : '600px'})</option>`).join('');
+        
+        html = `
+            <div class="form-group">
+                <label>Choisir une image existante</label>
+                ${thumbnailsHtml}
+                <input type="hidden" id="edit-image" value="${b.image || ''}">
+                <button type="button" onclick="clearBlockImage()" style="margin-top:8px;padding:6px 12px;background:transparent;border:1px solid var(--text-dim);border-radius:4px;color:var(--text-dim);cursor:pointer;font-size:12px;">Supprimer l'image</button>
+            </div>
+            <div class="form-group">
+                <label>Position de l'image</label>
+                <select id="edit-image_pos" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.2);border-radius:8px;color:var(--text);margin-bottom:12px;">
+                    <option value="top" ${b.image_pos === 'top' ? 'selected' : ''}>En haut</option>
+                    <option value="bottom" ${b.image_pos === 'bottom' ? 'selected' : ''}>En bas</option>
+                    <option value="left" ${b.image_pos === 'left' ? 'selected' : ''}>A gauche</option>
+                    <option value="right" ${b.image_pos === 'right' ? 'selected' : ''}>A droite</option>
+                </select>
+                <label>Taille de l'image</label>
+                <select id="edit-image_size" style="width:100%;padding:10px;background:var(--dark);border:1px solid rgba(212,175,55,0.2);border-radius:8px;color:var(--text);">
+                    ${imgSizeOptions}
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ou uploader une nouvelle image</label>
+                <input type="file" id="edit-upload-image" accept="image/*" style="width:100%;padding:10px;background:var(--dark);border:1px dashed rgba(212,175,55,0.3);border-radius:8px;color:var(--text);">
+                <button class="btn btn-sm btn-gold" onclick="uploadImageForBlock(' + i + ')" style="margin-top:8px;padding:8px 16px;">Uploader et utiliser</button>
+            </div>
+            <div class="form-group" style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(212,175,55,0.1);">
+                <label>Contenu HTML</label>
+                <div style="display:flex;gap:4px;margin-bottom:8px;">
+                    <button type="button" onclick="formatText('bold')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;font-weight:bold;">B</button>
+                    <button type="button" onclick="formatText('italic')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;font-style:italic;">I</button>
+                    <button type="button" onclick="formatText('h2')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;">H2</button>
+                    <button type="button" onclick="formatText('h3')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;">H3</button>
+                    <button type="button" onclick="formatText('p')" style="padding:6px 12px;background:var(--dark);border:1px solid rgba(212,175,55,0.3);border-radius:4px;color:var(--gold);cursor:pointer;">P</button>
+                </div>
+                <textarea id="edit-content" style="min-height:150px;">${b.content || ''}</textarea>
+            </div>
+        `;
+    }
+    
+    const m = document.createElement('div');
+    m.id = 'editModal';
+    m.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:2000;padding:20px;overflow-y:auto;';
+    m.innerHTML = '<div style="background:var(--dark-light);padding:32px;border-radius:16px;width:100%;max-width:700px;border:1px solid rgba(212,175,55,0.2);max-height:90vh;overflow-y:auto;"><h3 style="color:var(--gold);margin-bottom:20px;">Modifier le bloc</h3>' + html + '<div style="display:flex;gap:12px;margin-top:20px;"><button class="btn btn-gold" onclick="saveEdit(' + i + ')">OK</button><button class="btn btn-outline" onclick="closeEditModal()">Annuler</button></div></div>';
+    document.body.appendChild(m);
+    
+    // Close on Escape
+    document.addEventListener('keydown', function escHandler(e) {
+        if (e.key === 'Escape') {
+            closeEditModal();
+            document.removeEventListener('keydown', escHandler);
+        }
+    });
+}
+
+function setBlockImage(blockIndex, path) {
+    document.getElementById('edit-image').value = path;
+}
+
+function clearBlockImage() {
+    document.getElementById('edit-image').value = '';
+}
+
+function saveEdit(i) {
+    const b = blocks[i];
+    b.content = document.getElementById('edit-content')?.value || b.content; 
+    b.image = document.getElementById('edit-image')?.value || '';
+    b.image_pos = document.getElementById('edit-image_pos')?.value || 'top';
+    b.image_size = document.getElementById('edit-image_size')?.value || 'medium';
+    
+    if (b.type === 'news') { 
+        b.title = document.getElementById('edit-title')?.value || b.title; 
+        b.date = document.getElementById('edit-date')?.value || b.date; 
+    }
+    saveBlocks();
+}
+
+function saveBlocks() {
+    fetch('?page=actualites', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=save_blocks&page=actualites&data=' + encodeURIComponent(JSON.stringify(blocks))
+    }).then(r => r.json()).then(res => { if (res.ok) { renderBlocks(); location.reload(); } });
+}
+
+function useImage(p) { alert('Image: ' + p); }
+
+let galleryChanges = [];
+
+function toggleGalleryImageClick(el, path) {
+    const isInGallery = el.classList.contains('in-gallery');
+    if (isInGallery) {
+        el.classList.remove('in-gallery');
+        el.style.borderColor = 'transparent';
+        el.querySelector('.img-name').textContent = '+';
+    } else {
+        el.classList.add('in-gallery');
+        el.style.borderColor = 'var(--gold)';
+        el.querySelector('.img-name').textContent = '✓';
+    }
+}
+
+function saveGallerySelection() {
+    const items = document.querySelectorAll('#imagePicker .image-picker-item');
+    const finalPaths = [];
+    
+    items.forEach(item => {
+        if (item.classList.contains('in-gallery')) {
+            finalPaths.push(item.dataset.path);
+        }
+    });
+    
+    fetch('?page=galerie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=save_gallery_batch&paths=' + encodeURIComponent(JSON.stringify(finalPaths))
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            alert('Galerie mise a jour!');
+            location.reload();
+        }
+    });
+}
+
+document.getElementById('uploadForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    fd.append('action', 'upload_image');
+    document.getElementById('uploadResult').innerHTML = '<span style="color:var(--gold);">Upload...</span>';
+    fetch('?page=actualites', { method: 'POST', body: fd })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) { document.getElementById('uploadResult').innerHTML = '<span style="color:#1EA97C;">OK!</span>'; setTimeout(() => location.reload(), 1000); }
+        else { document.getElementById('uploadResult').innerHTML = '<span style="color:#FF5757;">Erreur: ' + res.err + '</span>'; }
+    });
+});
+
+document.getElementById('uploadFormGallery')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const fd = new FormData(this);
+    fd.append('action', 'upload_image');
+    fd.append('add_to_gallery', document.getElementById('add-gallery-check').checked ? 'true' : 'false');
+    document.getElementById('uploadGalleryResult').innerHTML = '<span style="color:var(--gold);">Upload...</span>';
+    fetch('?page=actualites', { method: 'POST', body: fd })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) { document.getElementById('uploadGalleryResult').innerHTML = '<span style="color:#1EA97C;">OK! Ajoute a la galerie!</span>'; setTimeout(() => location.reload(), 1000); }
+        else { document.getElementById('uploadGalleryResult').innerHTML = '<span style="color:#FF5757;">Erreur: ' + res.err + '</span>'; }
+    });
+});
+
+function correctText() {
+    const text = document.getElementById('aiInput').value.trim();
+    if (text.length < 10) { alert('Texte trop court'); return; }
+    document.getElementById('aiLoading').classList.add('show');
+    document.getElementById('aiResult').style.display = 'none';
+    
+    fetch('?page=actualites', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=ai_correct&text=' + encodeURIComponent(text)
+    })
+    .then(r => r.json())
+    .then(res => {
+        document.getElementById('aiLoading').classList.remove('show');
+        if (res.ok) {
+            document.getElementById('aiCorrectedText').textContent = res.corrected;
+            document.getElementById('aiResult').style.display = 'block';
+        } else {
+            alert('Erreur IA: ' + res.err);
+        }
+    });
+}
+
+function copyCorrected() {
+    const t = document.getElementById('aiCorrectedText').textContent;
+    if (t) { navigator.clipboard.writeText(t); alert('Copie!'); }
+}
+
+// AI Chat
+function sendChat() {
+    const input = document.getElementById('chatInput');
+    const msg = input.value.trim();
+    if (!msg) return;
+    
+    chatConversation += (chatConversation ? ' | ' : '') + 'User: ' + msg;
+    chatMessageCount++;
+    
+    const messagesDiv = document.getElementById('chatMessages');
+    messagesDiv.innerHTML += '<div class="chat-message user">' + msg + '</div>';
+    input.value = '';
+    
+    document.getElementById('chatLoading').style.display = 'flex';
+    document.getElementById('generateBlocksSection').style.display = 'none';
+    
+    fetch('?page=actualites', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=ai_chat&conversation=' + encodeURIComponent(chatConversation)
+    })
+    .then(r => r.json())
+    .then(res => {
+        document.getElementById('chatLoading').style.display = 'none';
+        if (res.ok) {
+            chatConversation += ' | AI: ' + res.response;
+            messagesDiv.innerHTML += '<div class="chat-message ai">' + res.response + '</div>';
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            
+            if (chatMessageCount >= 2) {
+                document.getElementById('generateBlocksSection').style.display = 'block';
+            }
+        } else {
+            alert('Erreur: ' + res.err);
+        }
+    });
+}
+
+function useSuggestion(text) {
+    document.getElementById('chatInput').value = text;
+    sendChat();
+}
+
+function generateBlocks() {
+    if (!confirm('Generer des blocs de contenu bas�s sur la conversation ?')) return;
+    
+    document.getElementById('chatLoading').style.display = 'flex';
+    document.getElementById('generatedBlocksPreview').style.display = 'none';
+    
+    fetch('?page=actualites', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=ai_generate_blocks&conversation=' + encodeURIComponent(chatConversation)
+    })
+    .then(r => r.text())
+    .then(text => {
+        console.log('Raw response:', text.substring(0, 500));
+        const res = JSON.parse(text);
+        document.getElementById('chatLoading').style.display = 'none';
+        if (res.ok && res.blocks && res.blocks.length > 0) {
+            let preview = '<h4 style="color:#1EA97C;margin-bottom:16px;">Blocs generes (' + res.blocks.length + '):</h4>';
+            res.blocks.forEach((b, i) => {
+                const title = b.content.match(/<h2>(.*?)<\/h2>/)?.[1] || 'Bloc ' + (i+1);
+                const textContent = b.content.replace(/<[^>]+>/g, '').substring(0, 80) + '...';
+                preview += '<div class="generated-block-item"><h4>' + title + '</h4><p>' + textContent + '</p></div>';
+            });
+            preview += '<button class="btn btn-gold" onclick="addGeneratedBlocks()" style="background:#1EA97C;width:100%;margin-top:16px;">Ajouter tous les blocs</button>';
+            document.getElementById('generatedBlocksPreview').innerHTML = preview;
+            document.getElementById('generatedBlocksPreview').style.display = 'block';
+            window.generatedBlocks = res.blocks;
+        } else {
+            alert('Erreur: ' + (res.err || 'Aucun bloc genere'));
+        }
+    })
+    .catch(err => {
+        document.getElementById('chatLoading').style.display = 'none';
+        alert('Erreur reseau: ' + err.message);
+    });
+}
+
+function addGeneratedBlocks() {
+    if (window.generatedBlocks && window.generatedBlocks.length > 0) {
+        window.generatedBlocks.forEach(b => {
+            blocks.push({type: 'text', content: b.content, image: '', image_pos: 'top', image_size: 'medium'});
+        });
+        saveBlocks();
+    }
+}
+
+// Edit block directly
+function editBlockDirect(index) {
+    editBlock(index);
+    document.getElementById('editorPanel').classList.add('active');
+    document.getElementById('editorPanel').scrollTop = 0;
+}
+
+function closeEditModal() {
+    const modal = document.getElementById('editModal');
+    if (modal) modal.remove();
+}
+
+function uploadImageForBlock(blockIndex) {
+    const fileInput = document.getElementById('edit-upload-image');
+    const file = fileInput.files[0];
+    if (!file) {
+        alert('Selectionnez d\'abord une image');
+        return;
+    }
+    
+    const fd = new FormData();
+    fd.append('action', 'upload_image');
+    fd.append('image', file);
+    
+    fetch('?page=actualites', { method: 'POST', body: fd })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            document.getElementById('edit-image').value = res.path;
+            alert('Image uploadée ! Cliquez sur une miniature pour la sélectionner.');
+        } else {
+            alert('Erreur: ' + res.err);
+        }
+    });
+}
+
+function formatText(type) {
+    const ta = document.getElementById('edit-content');
+    const start = ta.selectionStart;
+    const end = ta.selectionEnd;
+    const text = ta.value;
+    const selected = text.substring(start, end);
+    
+    let wrap = '';
+    let surround = '';
+    
+    switch(type) {
+        case 'bold':
+            wrap = '**';
+            break;
+        case 'italic':
+            wrap = '_';
+            break;
+        case 'h2':
+            surround = '\n<h2>';
+            wrap = '</h2>\n';
+            break;
+        case 'h3':
+            surround = '\n<h3>';
+            wrap = '</h3>\n';
+            break;
+        case 'p':
+            surround = '\n<p>';
+            wrap = '</p>\n';
+            break;
+    }
+    
+    if (surround) {
+        ta.value = text.substring(0, start) + surround + selected + wrap + text.substring(end);
+    } else if (selected) {
+        ta.value = text.substring(0, start) + wrap + selected + wrap + text.substring(end);
+    } else {
+        ta.value = text.substring(0, start) + wrap + 'texte' + wrap + text.substring(end);
+    }
+    
+    ta.focus();
+}
+
+function sendContact(e) {
+    e.preventDefault();
+    const name = document.getElementById('contact-name').value;
+    const email = document.getElementById('contact-email').value;
+    const message = document.getElementById('contact-message').value;
+    const result = document.getElementById('contactResult');
+    
+    result.style.display = 'block';
+    result.style.background = 'rgba(212, 175, 55, 0.1)';
+    result.style.color = 'var(--gold)';
+    result.textContent = 'Envoi en cours...';
+    
+    fetch('?page=contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=send_contact&name=' + encodeURIComponent(name) + '&email=' + encodeURIComponent(email) + '&message=' + encodeURIComponent(message)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            result.style.background = 'rgba(30, 169, 124, 0.2)';
+            result.style.color = '#1EA97C';
+            result.textContent = 'Message envoyé ! Nous vous répondrons bientôt.';
+            document.getElementById('contactForm').reset();
+        } else {
+            result.style.background = 'rgba(255, 87, 87, 0.2)';
+            result.style.color = '#FF5757';
+            result.textContent = 'Erreur: ' + res.err;
+        }
+    })
+    .catch(err => {
+        result.style.background = 'rgba(255, 87, 87, 0.2)';
+        result.style.color = '#FF5757';
+        result.textContent = 'Erreur de connexion';
+    });
+}
+
+// Drag and drop
+let draggedIndex = null;
+
+document.querySelectorAll('.block-wrapper[draggable=true]').forEach(wrapper => {
+    wrapper.addEventListener('dragstart', function(e) {
+        draggedIndex = parseInt(this.dataset.index);
+        this.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+    });
+    
+    wrapper.addEventListener('dragend', function() {
+        this.classList.remove('dragging');
+        document.querySelectorAll('.block-wrapper').forEach(w => w.classList.remove('drag-over'));
+        draggedIndex = null;
+    });
+    
+    wrapper.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.classList.add('drag-over');
+    });
+    
+    wrapper.addEventListener('dragleave', function() {
+        this.classList.remove('drag-over');
+    });
+    
+    wrapper.addEventListener('drop', function(e) {
+        e.preventDefault();
+        const dropIndex = parseInt(this.dataset.index);
+        if (draggedIndex !== null && draggedIndex !== dropIndex) {
+            const item = blocks[draggedIndex];
+            blocks.splice(draggedIndex, 1);
+            blocks.splice(dropIndex, 0, item);
+            saveBlocks();
+        }
+        this.classList.remove('drag-over');
+    });
+});
+
+renderBlocks();
+
+// Image Resizer Tool
+const MAX_PX    = 1920;
+const MAX_BYTES = 2.7 * 1024 * 1024;
+
+let resizeOriginalWidth  = 0;
+let resizeOriginalHeight = 0;
+let resizeOriginalFile   = null;
+
+function _autoScale(w, h) {
+    const auto = document.getElementById("autoLimit");
+    if (!auto || !auto.checked) return [w, h];
+    const longest = Math.max(w, h);
+    if (longest > MAX_PX) { const r = MAX_PX / longest; return [Math.round(w*r), Math.round(h*r)]; }
+    return [w, h];
+}
+function _updateInfo(origW, origH, outW, outH, sizeStr) {
+    const el = id => document.getElementById(id);
+    if (el("origDimensions")) el("origDimensions").textContent = origW + " x " + origH + " px";
+    if (el("outDimensions"))  el("outDimensions").textContent  = outW  + " x " + outH  + " px";
+    if (el("outFileSize") && sizeStr) el("outFileSize").textContent = sizeStr;
+}
+function _onImageLoaded(img) {
+    resizeOriginalWidth  = img.naturalWidth;
+    resizeOriginalHeight = img.naturalHeight;
+    const [ow, oh] = _autoScale(resizeOriginalWidth, resizeOriginalHeight);
+    const el = id => document.getElementById(id);
+    if (el("resizeWidth"))  el("resizeWidth").value  = ow;
+    if (el("resizeHeight")) el("resizeHeight").value = oh;
+    _updateInfo(resizeOriginalWidth, resizeOriginalHeight, ow, oh, "calcul...");
+    document.getElementById("resizePreview").style.display = "block";
+}
+document.getElementById("resizeInput")?.addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    resizeOriginalFile = file;
+    const reader = new FileReader();
+    reader.onload = evt => {
+        const img = document.getElementById("resizePreviewImg");
+        img.src = evt.target.result;
+        img.onload = () => _onImageLoaded(img);
+    };
+    reader.readAsDataURL(file);
+});
+document.getElementById("resizeWidth")?.addEventListener("input", function() {
+    const w = parseInt(this.value) || 0;
+    if (w > 0 && resizeOriginalWidth > 0) {
+        const h = Math.round(w * resizeOriginalHeight / resizeOriginalWidth);
+        document.getElementById("resizeHeight").value = h;
+        _updateInfo(resizeOriginalWidth, resizeOriginalHeight, w, h, null);
+    }
+});
+document.getElementById("resizeHeight")?.addEventListener("input", function() {
+    const h = parseInt(this.value) || 0;
+    if (h > 0 && resizeOriginalHeight > 0) {
+        const w = Math.round(h * resizeOriginalWidth / resizeOriginalHeight);
+        document.getElementById("resizeWidth").value = w;
+        _updateInfo(resizeOriginalWidth, resizeOriginalHeight, w, h, null);
+    }
+});
+function applyResizePercent() {
+    const pct = parseInt(document.getElementById("resizePercent").value) || 100;
+    if (resizeOriginalWidth > 0) {
+        let [w, h] = [Math.round(resizeOriginalWidth * pct / 100), Math.round(resizeOriginalHeight * pct / 100)];
+        [w, h] = _autoScale(w, h);
+        document.getElementById("resizeWidth").value  = w;
+        document.getElementById("resizeHeight").value = h;
+        _updateInfo(resizeOriginalWidth, resizeOriginalHeight, w, h, null);
+    }
+}
+function _blobToOptimal(canvas, callback) {
+    const auto = document.getElementById("autoLimit");
+    if (!auto || !auto.checked) { canvas.toBlob(b => callback(b), "image/jpeg", 0.92); return; }
+    canvas.toBlob(b => {
+        if (b.size <= MAX_BYTES) { callback(b); return; }
+        let lo = 0.72, hi = 0.92, best = b, iter = 0;
+        const step = () => {
+            if (iter++ > 7) { callback(best); return; }
+            const mid = (lo + hi) / 2;
+            canvas.toBlob(nb => { best = nb; if (nb.size <= MAX_BYTES) lo = mid; else hi = mid; step(); }, "image/jpeg", mid);
+        };
+        step();
+    }, "image/jpeg", 0.92);
+}
+function downloadResizedImage() {
+    const msg = document.getElementById("resizeMsg");
+    const showMsg = (text, color, bg) => { if (!msg) return; msg.style.display="block"; msg.style.color=color; msg.style.background=bg; msg.textContent=text; };
+    if (!resizeOriginalFile) { showMsg("Selectionnez une image.", "#f77", "rgba(255,87,87,0.15)"); return; }
+    let tw = parseInt(document.getElementById("resizeWidth").value)  || resizeOriginalWidth;
+    let th = parseInt(document.getElementById("resizeHeight").value) || resizeOriginalHeight;
+    [tw, th] = _autoScale(tw, th);
+    document.getElementById("resizeWidth").value = tw;
+    document.getElementById("resizeHeight").value = th;
+    showMsg("Optimisation en cours...", "var(--gold)", "rgba(212,175,55,0.1)");
+    const reader = new FileReader();
+    reader.onload = evt => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement("canvas");
+            canvas.width = tw; canvas.height = th;
+            canvas.getContext("2d").drawImage(img, 0, 0, tw, th);
+            _blobToOptimal(canvas, blob => {
+                const sizeMo = (blob.size / 1024 / 1024).toFixed(2);
+                _updateInfo(resizeOriginalWidth, resizeOriginalHeight, tw, th, sizeMo + " Mo");
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = resizeOriginalFile.name.replace(/\.[^/.]+$/, "") + "_" + tw + "px.jpg";
+                a.click(); URL.revokeObjectURL(url);
+                showMsg("Telecharge : " + tw + " x " + th + " px . " + sizeMo + " Mo", "#4caf90", "rgba(30,169,124,0.15)");
+            });
+        };
+        img.src = evt.target.result;
+    };
+    reader.readAsDataURL(resizeOriginalFile);
+}
+function clearResize() {
+    const inp = document.getElementById("resizeInput");
+    if (inp) inp.value = "";
+    const prev = document.getElementById("resizePreview");
+    if (prev) prev.style.display = "none";
+    const msg = document.getElementById("resizeMsg");
+    if (msg) msg.style.display = "none";
+    resizeOriginalFile = null;
+    resizeOriginalWidth = resizeOriginalHeight = 0;
+}
+
+function deleteGalleryImage(path) {
+    if (!confirm('Supprimer cette image de la galerie ?')) return;
+    fetch('?page=galerie', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: 'action=remove_from_gallery&path=' + encodeURIComponent(path)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            location.reload();
+        } else {
+            alert('Erreur: ' + res.err);
+        }
+    });
+}
+</script>
+
+</body>
+</html>
